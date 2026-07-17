@@ -48,7 +48,10 @@ VS Code (desarrollo local)
 percy-portfolio/
 ├── CLAUDE.md               ← este archivo
 ├── docker-compose.yml      ← stack de Portainer
-├── nginx.conf              ← configuración del servidor estático
+├── nginx/
+│   └── default.conf        ← configuración del servidor estático (se monta la carpeta completa)
+├── tools/
+│   └── dev-server.py       ← servidor de desarrollo local (localhost:5500)
 └── src/
     ├── index.html          ← portafolio principal
     ├── assets/
@@ -74,8 +77,6 @@ No hay build step — el sitio es HTML/CSS estático servido directamente por Ng
 ## docker-compose.yml (referencia)
 
 ```yaml
-version: "3.9"
-
 services:
   portfolio:
     image: nginx:alpine
@@ -83,17 +84,21 @@ services:
     restart: unless-stopped
     volumes:
       - ./src:/usr/share/nginx/html:ro
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx:/etc/nginx/conf.d:ro
     ports:
       - "8080:80"
 ```
+
+> **Importante:** la config de nginx se monta como **carpeta** (`./nginx` → `/etc/nginx/conf.d`),
+> nunca como archivo individual — los bind mounts de archivos sueltos fallan en los deploys
+> por Repository de Portainer ("not a directory / trying to mount a directory onto a file").
 
 > El puerto 8080 es el interno del HomeLab. Cloudflare Tunnel apunta desde
 > `portfolio.tecg8n.xyz` a `localhost:8080` del servidor.
 
 ---
 
-## nginx.conf (referencia)
+## nginx/default.conf (referencia)
 
 ```nginx
 server {
