@@ -1,10 +1,8 @@
 services:
   portfolio:
-    image: nginx:alpine
+    build: .
+    image: percy-portfolio:latest
     container_name: percy-portfolio
     restart: unless-stopped
-    volumes:
-      - ./src:/usr/share/nginx/html:ro
-      - ./nginx:/etc/nginx/conf.d:ro
     ports:
       - "${HOST_PORT:-8081}:80"

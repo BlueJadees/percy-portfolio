@@ -47,9 +47,10 @@ VS Code (desarrollo local)
 ```
 percy-portfolio/
 ├── CLAUDE.md               ← este archivo
-├── docker-compose.yml      ← stack de Portainer
+├── Dockerfile              ← construye la imagen (copia src/ y nginx/ DENTRO)
+├── docker-compose.yml      ← stack de Portainer (build: . )
 ├── nginx/
-│   └── default.conf        ← configuración del servidor estático (se monta la carpeta completa)
+│   └── default.conf        ← configuración del servidor estático (copiada en la imagen)
 ├── tools/
 │   └── dev-server.py       ← servidor de desarrollo local (localhost:5500)
 └── src/
@@ -67,10 +68,14 @@ percy-portfolio/
 
 1. Editar archivos en `src/` desde VS Code
 2. Hacer `git add . && git commit -m "descripción"` y `git push`
-3. Entrar a Portainer → stack `percy-portfolio` → Pull + Redeploy
+3. Entrar a Portainer → stack `percy-portfolio` → **Pull and redeploy** (marca "Re-pull image and redeploy" / rebuild) para que reconstruya la imagen con el contenido nuevo
 4. Verificar en `https://portfolio.tecg8n.xyz`
 
-No hay build step — el sitio es HTML/CSS estático servido directamente por Nginx.
+El sitio es HTML/CSS estático, pero se **hornea dentro de una imagen** (Dockerfile) en lugar
+de montarse por volumen. Motivo: Portainer, al desplegar desde un repositorio, no resuelve de
+forma fiable los bind mounts relativos (`./src`, `./nginx`) y termina montando carpetas vacías
+sobre las rutas de nginx → nginx arranca sin config, sirve la página de fábrica y responde 502
+detrás del tunnel. Copiar los archivos en la imagen elimina esa dependencia por completo.
 
 ---
 
@@ -79,23 +84,32 @@ No hay build step — el sitio es HTML/CSS estático servido directamente por Ng
 ```yaml
 services:
   portfolio:
-    image: nginx:alpine
+    build: .
+    image: percy-portfolio:latest
     container_name: percy-portfolio
     restart: unless-stopped
-    volumes:
-      - ./src:/usr/share/nginx/html:ro
-      - ./nginx:/etc/nginx/conf.d:ro
     ports:
       - "${HOST_PORT:-8081}:80"
+```
+
+```dockerfile
+# Dockerfile
+FROM nginx:alpine
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY src/ /usr/share/nginx/html/
+EXPOSE 80
 ```
 
 > El puerto del host es configurable con la variable `HOST_PORT` — **default 8081**, porque el
 > 8080 ya está ocupado por otro servicio del HomeLab. Cloudflare Tunnel debe apuntar al
 > puerto elegido (`localhost:8081`).
 
-> **Importante:** la config de nginx se monta como **carpeta** (`./nginx` → `/etc/nginx/conf.d`),
-> nunca como archivo individual — los bind mounts de archivos sueltos fallan en los deploys
-> por Repository de Portainer ("not a directory / trying to mount a directory onto a file").
+> **Historial de este deploy (para no repetir errores):**
+> 1. Montar `nginx.conf` como archivo suelto → *"not a directory"*. Se pasó a montar la carpeta.
+> 2. Puerto 8080 ocupado por otro servicio → se parametrizó y quedó en 8081.
+> 3. Montar `./src` y `./nginx` como volúmenes relativos → Portainer los resolvía como carpetas
+>    vacías; nginx arrancaba sin config y devolvía 502. **Solución final: Dockerfile que copia
+>    todo dentro de la imagen, sin volúmenes.**
 
 > El puerto 8081 es el interno del HomeLab. Cloudflare Tunnel apunta desde
 > `portfolio.tecg8n.xyz` a `localhost:8081` del servidor.
