@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percy Muñoz — Backend Senior Developer & Indie Game Dev</title>
+  <meta name="description" content="Portafolio de Percy Antonio Muñoz Barrera: desarrollo backend senior (Django, SQL Server, integraciones) y videojuegos indie (Godot 4). Santiago, Chile.">
+
+  <!-- TODO: favicon personalizado -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- TODO: meta tags OG (og:title, og:image, og:description) -->
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       Variables globales — paleta oficial del portafolio
+       ============================================================ */
+    :root {
+      --bg: #0E0F11;          /* fondo principal */
+      --bg-2: #141618;        /* cards */
+      --bg-3: #1A1C20;        /* hover / secondary */
+      --text: #EAE8E3;        /* texto principal */
+      --muted: #6B7280;       /* texto secundario */
+      --red: #C84B31;         /* acento backend */
+      --amber: #E8A838;       /* acento gamedev */
+      --violet: #7C6AF7;      /* acento proyectos especiales */
+
+      --font-display: "Playfair Display", serif;
+      --font-mono: "JetBrains Mono", monospace;
+      --font-body: "Mulish", sans-serif;
+
+      --max-width: 1100px;
+    }
+
+    /* ============================================================
+       Reset y base
+       ============================================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    /* Encabezados de sección */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Acentos por área */
+    .accent-backend  { color: var(--red); }
+    .accent-gamedev  { color: var(--amber); }
+    .accent-special  { color: var(--violet); }
+
+    /* ============================================================
+       Header / Nav
+       ============================================================ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14, 15, 17, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--bg-3);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--amber);
+    }
+
+    /* ============================================================
+       Hero
+       ============================================================ */
+    #hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-role {
+      font-family: var(--font-mono);
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline {
+      color: var(--muted);
+      max-width: 42rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 0.7rem 1.4rem;
+      border: 1px solid var(--muted);
+      border-radius: 4px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .btn.btn-primary {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--text);
+    }
+
+    .btn.btn-primary:hover {
+      background: transparent;
+      color: var(--red);
+    }
+
+    /* ============================================================
+       Grid de proyectos (compartido por las tres secciones)
+       ============================================================ */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-2);
+      border: 1px solid var(--bg-3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      background: var(--bg-3);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    .card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--bg-3);
+      color: var(--muted);
+    }
+
+    .card-links {
+      display: flex;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .card-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ============================================================
+       Contacto / Footer
+       ============================================================ */
+    #contacto .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+
+    #contacto .contact-list a:hover {
+      color: var(--amber);
+    }
+
+    footer {
+      border-top: 1px solid var(--bg-3);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none; /* TODO: menú móvil si se necesita */
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav class="nav">
+      <a href="#hero" class="nav-logo">percy.muñoz<span class="accent-backend">_</span></a>
+      <ul class="nav-links">
+        <li><a href="#backend">Backend</a></li>
+        <li><a href="#juegos">Juegos</a></li>
+        <li><a href="#especiales">Especiales</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section id="hero">
+      <div class="container">
+        <p class="hero-role">// Backend Senior Developer · Indie Game Dev · Santiago, Chile</p>
+        <h1 class="hero-title">Percy Antonio<br>Muñoz Barrera</h1>
+        <p class="hero-tagline">
+          <!-- TODO: tagline definitivo — propuesta de valor en 2-3 líneas -->
+          Construyo sistemas backend robustos para empresas y videojuegos independientes
+          para la comunidad. Django, SQL Server, integraciones y Godot 4.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">Contáctame</a>
+          <a class="btn" href="#backend">Ver proyectos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BACKEND & ARQUITECTURA ================= -->
+    <section id="backend">
+      <div class="container">
+        <p class="section-label">01 / backend</p>
+        <h2 class="section-title">Backend <span class="accent-backend">&amp; Arquitectura</span></h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Kuppel Management</h3>
+            <p>ERP interno Django/SQL Server integrado con Softland Cloud vía SOAP. Proyecto principal.</p>
+            <div class="tags">
+              <span class="tag">Django</span><span class="tag">SQL Server</span><span class="tag">SOAP</span>
+            </div>
+            <!-- TODO: screenshot ofuscando datos sensibles -->
+          </article>
+
+          <article class="card">
+            <h3>Automatización Logística</h3>
+            <p>Scraping con Selenium de plataformas de transporte (El Arriero, TVP).</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Selenium</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>DB Explorer Tool</h3>
+            <p>Herramienta de análisis de bases de datos sin SSMS, pensada para el ecosistema Softland.</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">SQL Server</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Automatización Brevo</h3>
+            <p>Mailing masivo y generación de comprobantes vía API.</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Brevo API</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Infraestructura HomeLab</h3>
+            <p>Ubuntu + Docker + Portainer + Cloudflare Tunnels. Este mismo sitio corre ahí.</p>
+            <div class="tags">
+              <span class="tag">Docker</span><span class="tag">Nginx</span><span class="tag">Cloudflare</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIDEOJUEGOS INDIE ================= -->
+    <section id="juegos">
+      <div class="container">
+        <p class="section-label">02 / gamedev</p>
+        <h2 class="section-title">Videojuegos <span class="accent-gamedev">Indie</span></h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Virals</h3>
+            <p>Godot 4 — Publicado en itch.io. Mejor proyecto de la Game Jam (Diplomado UNSJ Argentina).</p>
+            <div class="tags">
+              <span class="tag">Godot 4</span><span class="tag">Game Jam</span>
+            </div>
+            <div class="card-links">
+              <!-- TODO: reemplazar # con URLs reales de itch.io y GitHub -->
+              <a href="#" class="accent-gamedev">itch.io ↗</a>
+              <a href="#">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Hunt the Space Dragon</h3>
+            <p>Godot 4 — En desarrollo. Port desde GDevelop 5; se embeberá aquí como build HTML5 jugable.</p>
+            <div class="tags">
+              <span class="tag">Godot 4</span><span class="tag">En desarrollo</span>
+            </div>
+            <div class="card-links">
+              <!-- TODO: enlazar a assets/games/hunt-the-space-dragon/ cuando exista el build -->
+              <a href="#" class="accent-gamedev">Jugar ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROYECTOS ESPECIALES ================= -->
+    <section id="especiales">
+      <div class="container">
+        <p class="section-label">03 / especiales</p>
+        <h2 class="section-title">Proyectos <span class="accent-special">Especiales</span></h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Satelite</h3>
+            <p>Asistente IA con interfaz de anime — Gemini API + IMAP + exportación Excel.</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Gemini API</span><span class="tag">IMAP</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Coliseo Smash</h3>
+            <p>Producción audiovisual de torneos de fighting games — streaming, cámaras, comentarismo.</p>
+            <div class="tags">
+              <span class="tag">Streaming</span><span class="tag">Producción AV</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTO ================= -->
+    <section id="contacto">
+      <div class="container">
+        <p class="section-label">04 / contacto</p>
+        <h2 class="section-title">Hablemos</h2>
+
+        <ul class="contact-list">
+          <li>✉ <a href="mailto:percy.munoz08@gmail.com">percy.munoz08@gmail.com</a></li>
+          <li>⌥ <a href="https://github.com/BlueJadees" target="_blank" rel="noopener">github.com/BlueJadees</a></li>
+          <li>in <a href="https://linkedin.com/in/percymumoz08/" target="_blank" rel="noopener">linkedin.com/in/percymumoz08</a></li>
+          <li>☎ <a href="tel:+56949281669">+56 9 4928 1669</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
+  </footer>
+
+</body>
+</html>
