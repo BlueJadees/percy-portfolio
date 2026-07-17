@@ -185,15 +185,16 @@ server {
 - Commits en español o inglés, consistente dentro de cada sesión
 
 ### Paleta de colores (CSS variables definidas en index.html)
+Paleta azul petróleo / turquesa (tema "tech nocturno frío").
 ```css
---bg: #0E0F11;          /* fondo principal */
---bg-2: #141618;        /* cards */
---bg-3: #1A1C20;        /* hover / secondary */
---text: #EAE8E3;        /* texto principal */
---muted: #6B7280;       /* texto secundario */
---red: #C84B31;         /* acento backend */
---amber: #E8A838;       /* acento gamedev */
---violet: #7C6AF7;      /* acento proyectos especiales */
+--bg: #08171A;          /* fondo principal (teal muy oscuro) */
+--bg-2: #0E2226;        /* cards */
+--bg-3: #163035;        /* hover / secondary */
+--text: #E8F0F1;        /* texto principal (blanco con tinte frío) */
+--muted: #7C97A0;       /* texto secundario (gris azulado) */
+--blue: #38BDF8;        /* acento backend (azul cielo) */
+--teal: #2DD4BF;        /* acento gamedev (turquesa) */
+--coral: #FB7185;       /* acento proyectos especiales (contraste) */
 ```
 
 ### Tipografías (Google Fonts, ya importadas)

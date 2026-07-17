@@ -21,14 +21,20 @@
        Variables globales — paleta oficial del portafolio
        ============================================================ */
     :root {
-      --bg: #0E0F11;          /* fondo principal */
-      --bg-2: #141618;        /* cards */
-      --bg-3: #1A1C20;        /* hover / secondary */
-      --text: #EAE8E3;        /* texto principal */
-      --muted: #6B7280;       /* texto secundario */
-      --red: #C84B31;         /* acento backend */
-      --amber: #E8A838;       /* acento gamedev */
-      --violet: #7C6AF7;      /* acento proyectos especiales */
+      /* Fondos — azul petróleo / teal oscuro */
+      --bg: #08171A;          /* fondo principal */
+      --bg-2: #0E2226;        /* cards */
+      --bg-3: #163035;        /* hover / secondary */
+
+      /* Texto */
+      --text: #E8F0F1;        /* texto principal (blanco con leve tinte frío) */
+      --muted: #7C97A0;       /* texto secundario (gris azulado) */
+
+      /* Acentos por área */
+      --blue: #38BDF8;        /* acento backend (azul cielo) */
+      --teal: #2DD4BF;        /* acento gamedev (turquesa) */
+      --coral: #FB7185;       /* acento proyectos especiales (coral, contraste) */
+
 
       --font-display: "Playfair Display", serif;
       --font-mono: "JetBrains Mono", monospace;
@@ -96,9 +102,9 @@
     }
 
     /* Acentos por área */
-    .accent-backend  { color: var(--red); }
-    .accent-gamedev  { color: var(--amber); }
-    .accent-special  { color: var(--violet); }
+    .accent-backend  { color: var(--blue); }
+    .accent-gamedev  { color: var(--teal); }
+    .accent-special  { color: var(--coral); }
 
     /* ============================================================
        Header / Nav
@@ -136,7 +142,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--amber);
+      color: var(--teal);
     }
 
     /* ============================================================
@@ -185,19 +191,19 @@
     }
 
     .btn:hover {
-      border-color: var(--red);
-      color: var(--red);
+      border-color: var(--blue);
+      color: var(--blue);
     }
 
     .btn.btn-primary {
-      background: var(--red);
-      border-color: var(--red);
-      color: var(--text);
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--bg);
     }
 
     .btn.btn-primary:hover {
       background: transparent;
-      color: var(--red);
+      color: var(--blue);
     }
 
     /* ============================================================
@@ -217,11 +223,12 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s, transform 0.2s, border-color 0.2s;
     }
 
     .card:hover {
       background: var(--bg-3);
+      border-color: var(--teal);
       transform: translateY(-3px);
     }
 
@@ -276,7 +283,7 @@
     }
 
     #contacto .contact-list a:hover {
-      color: var(--amber);
+      color: var(--teal);
     }
 
     footer {
@@ -307,7 +314,7 @@
   <!-- ================= HEADER ================= -->
   <header>
     <nav class="nav">
-      <a href="#hero" class="nav-logo">percy.muñoz<span class="accent-backend">_</span></a>
+      <a href="#hero" class="nav-logo">percy.muñoz<span class="accent-gamedev">_</span></a>
       <ul class="nav-links">
         <li><a href="#backend">Backend</a></li>
         <li><a href="#juegos">Juegos</a></li>
