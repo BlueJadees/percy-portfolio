@@ -97,8 +97,8 @@ services:
 > nunca como archivo individual — los bind mounts de archivos sueltos fallan en los deploys
 > por Repository de Portainer ("not a directory / trying to mount a directory onto a file").
 
-> El puerto 8080 es el interno del HomeLab. Cloudflare Tunnel apunta desde
-> `portfolio.tecg8n.xyz` a `localhost:8080` del servidor.
+> El puerto 8081 es el interno del HomeLab. Cloudflare Tunnel apunta desde
+> `portfolio.tecg8n.xyz` a `localhost:8081` del servidor.
 
 ---
 
