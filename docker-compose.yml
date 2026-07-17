@@ -7,4 +7,4 @@ services:
       - ./src:/usr/share/nginx/html:ro
       - ./nginx:/etc/nginx/conf.d:ro
     ports:
-      - "${HOST_PORT:-8080}:80"
+      - "${HOST_PORT:-8081}:80"

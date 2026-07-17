@@ -86,12 +86,12 @@ services:
       - ./src:/usr/share/nginx/html:ro
       - ./nginx:/etc/nginx/conf.d:ro
     ports:
-      - "${HOST_PORT:-8080}:80"
+      - "${HOST_PORT:-8081}:80"
 ```
 
-> El puerto del host es configurable con la variable `HOST_PORT` (default 8080) — se define
-> en el formulario del stack de Portainer (Environment variables) si el 8080 está ocupado
-> por otro servicio del HomeLab. Cloudflare Tunnel debe apuntar al puerto elegido.
+> El puerto del host es configurable con la variable `HOST_PORT` — **default 8081**, porque el
+> 8080 ya está ocupado por otro servicio del HomeLab. Cloudflare Tunnel debe apuntar al
+> puerto elegido (`localhost:8081`).
 
 > **Importante:** la config de nginx se monta como **carpeta** (`./nginx` → `/etc/nginx/conf.d`),
 > nunca como archivo individual — los bind mounts de archivos sueltos fallan en los deploys
