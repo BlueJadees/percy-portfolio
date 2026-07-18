@@ -326,11 +326,14 @@ a.card:hover .card-cta {
   transform: translateY(-2px);
 }
 
-/* icono: tamaño FIJO (px) para que no se expanda nunca */
+/* icono: tamaño FIJO (px) para que no se expanda nunca.
+   !important + max-* como defensa por si un SVG sin width intrínseco intenta crecer. */
 .contact-ico {
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
+  flex: 0 0 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
   color: var(--teal);
 }
 
