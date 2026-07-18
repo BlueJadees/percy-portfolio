@@ -63,20 +63,31 @@
         </p>
 
         <p>
+          El proyecto es la culminación de meses construyendo esos mismos análisis en <strong>Power
+          BI</strong>. Una vez validado qué información necesitaba realmente el negocio y cómo debía
+          presentarse, se migró la lógica de esos dashboards a una plataforma propia —ganando control
+          total sobre los datos, la interacción y las reglas de negocio que una herramienta de BI no
+          permitía.
+        </p>
+
+        <p>
           Kuppel Management se construyó para cerrar esa brecha. Se conecta a la <strong>base de datos
           espejo SQL Server</strong> contratada con Softland y, desde ahí, entrega la información que
           el ERP no sabía presentar. Está desarrollado en <strong>Python + Django</strong>, desplegado
           como aplicación web en <strong>PythonAnywhere</strong>, con respaldo de base de datos y
-          almacenamiento de adjuntos en <strong>Backblaze</strong>.
+          almacenamiento de adjuntos en <strong>Backblaze</strong>. La base de código sigue las
+          metodologías <strong>MVC</strong> y <strong>DRY</strong> para mantenerse ordenada y
+          mantenible a medida que la plataforma crecía.
         </p>
 
         <p>
           Lo que empezó como reportería terminó siendo una plataforma completa: no solo generaba
           reportes y dashboards, también sirvió como sistema de ingreso de datos y registros,
           manteniendo una <strong>coexistencia híbrida</strong> con el ERP. Finalmente se integró con
-          el plugin de <strong>e-commerce</strong> para crear una plataforma de ventas independiente,
-          entregada a los vendedores, con reglas de negocio que Softland no era capaz de aplicar —
-          mejorando el control y la trazabilidad de toda la empresa.
+          el plugin de <strong>e-commerce</strong> —consumido mediante una <strong>API SOAP sobre
+          XML</strong>— para crear una plataforma de ventas independiente, entregada a los vendedores,
+          con reglas de negocio que Softland no era capaz de aplicar — mejorando el control y la
+          trazabilidad de toda la empresa.
         </p>
 
         <!-- Captura del proyecto (pendiente) -->
@@ -136,11 +147,13 @@
         <div class="tech-list">
           <span class="tag">Python</span>
           <span class="tag">Django</span>
+          <span class="tag">MVC · DRY</span>
           <span class="tag">SQL Server (BD espejo)</span>
           <span class="tag">PythonAnywhere</span>
           <span class="tag">Backblaze</span>
-          <span class="tag">Plugin e-commerce</span>
+          <span class="tag">API SOAP / XML (e-commerce)</span>
           <span class="tag">Integración ERP Softland Cloud</span>
+          <span class="tag">Power BI (origen)</span>
         </div>
 
       </div>
