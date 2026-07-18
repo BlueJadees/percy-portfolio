@@ -4,11 +4,10 @@ Pendientes de trabajo. Los más recientes arriba.
 
 ## Pendientes activos
 
-- [ ] **Línea de tiempo (CV)** — sección de timeline mostrando trayectoria de
-      trabajos y estudios (educación + experiencia laboral).
 - [ ] **Panel de skills con barras de nivel** — listado de tecnologías con una barra
       de capacidad. Ej: Python — experto, C# — avanzado, Java — básico.
-      (Definir con Percy los lenguajes/niveles exactos.)
+      (Definir con Percy los lenguajes/niveles exactos. El CV lista: Python avanzado,
+      Django, Flask, PHP, C#, .NET, Node.js, JS, SQL Server avanzado, etc.)
 
 ## Completado
 
@@ -17,6 +16,8 @@ Pendientes de trabajo. Los más recientes arriba.
 - [x] **Historial de push de GitHub** — hecho (2026-07-19): sección "Actividad en
       GitHub" con contribution graph vía ghchart.rshah.org tintado en turquesa.
       Commit f87d100.
+- [x] **Línea de tiempo (CV)** — hecho (2026-07-19): sección "Trayectoria" con timeline
+      combinado (trabajos + estudios). Commit f29188c.
 
 ## Pendientes de contenido (capturas / assets)
 
