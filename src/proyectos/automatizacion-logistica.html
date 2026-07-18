@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatización Logística — Percy Muñoz</title>
+  <meta name="description" content="Scraper con Selenium que consolida el estado de las entregas de cuatro transportistas externos (El Arriero, TVP, Movituto, Chile Post) en un Excel unificado, cruzando cada Carta de Porte con su documento de venta.">
+
+  <link rel="icon" href="../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">percy.muñoz<span class="accent-gamedev">_</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#backend">Backend</a></li>
+        <li><a href="../index.html#juegos">Juegos</a></li>
+        <li><a href="../index.html#especiales">Especiales</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO DEL PROYECTO ================= -->
+    <section class="project-hero">
+      <div class="container">
+        <a href="../index.html#backend" class="back-link">← Volver al portafolio</a>
+
+        <div class="project-meta">
+          <span class="tag">Backend</span>
+          <span class="tag">Automatización</span>
+          <span class="tag">Comercial Kuppel SPA</span>
+        </div>
+
+        <h1 class="project-title">Automatización <span class="accent-backend">Logística</span></h1>
+        <p class="project-subtitle">
+          Un scraper que devolvió la trazabilidad de los envíos: consolida el estado de las entregas
+          de cuatro transportistas externos en un único Excel, sin depender de que nadie anote a mano
+          el número de seguimiento.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CUERPO DEL CASO ================= -->
+    <section class="project-body">
+      <div class="container">
+
+        <p class="lead">
+          En Comercial Kuppel SPA, cada vez que una carga se despachaba con un transportista externo,
+          se entregaba la mercadería con un documento oficial —normalmente una factura— y el
+          transportista devolvía una <strong>Carta de Porte</strong>: el número que permite verificar
+          el estado del envío en su plataforma.
+        </p>
+
+        <p>
+          El problema era doble. Primero, esa Carta de Porte <strong>no siempre quedaba registrada</strong>,
+          así que consultar el estado de un pedido dependía de haber guardado el número. Y segundo,
+          <strong>cada transportista mostraba la información a su manera</strong>, con su propia página,
+          su propio formato y sus propios estados. Verificar un envío era un trabajo manual, repetitivo
+          y propenso a perderse.
+        </p>
+
+        <p>
+          La solución fue un programa de scraping en <strong>Python con Selenium</strong> que usa las
+          credenciales entregadas por cada proveedor de transporte y, de forma <strong>programada</strong>,
+          entra a cada plataforma, rescata la información y la normaliza. El resultado se respalda en un
+          <strong>Excel por empresa</strong> y se consolida en un <strong>Excel general</strong> que
+          reúne todos los transportistas: la Carta de Porte, el documento de venta con el que se
+          relaciona, y el estado de la entrega traducido a partir de los parámetros de cada plataforma.
+        </p>
+
+        <!-- Captura del proyecto (pendiente) -->
+        <div class="shot-placeholder">
+          [ Captura pendiente — Excel consolidado de entregas, con datos sensibles ofuscados ]
+        </div>
+
+        <!-- ================= LO QUE RESUELVE ================= -->
+        <h2>Lo que resuelve</h2>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>Trazabilidad sin depender de nadie</h3>
+            <p>
+              Ya no importa si la Carta de Porte se anotó o no: el scraper rescata el estado
+              directamente de la plataforma del transportista de forma periódica.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Un formato único</h3>
+            <p>
+              Cuatro plataformas con cuatro formas distintas de mostrar los datos quedan normalizadas
+              en un solo Excel, con estados y campos homogéneos para todas.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Documento ↔ envío cruzados</h3>
+            <p>
+              Cada Carta de Porte queda vinculada a su documento de venta, cerrando el ciclo entre lo
+              que se facturó y lo que efectivamente se entregó.
+            </p>
+          </div>
+        </div>
+
+        <h2>Transportistas cubiertos</h2>
+        <p>
+          El scraper integra cuatro plataformas, cada una con su propio flujo de acceso y su propia
+          representación de los estados de entrega:
+        </p>
+        <div class="tech-list">
+          <span class="tag">El Arriero</span>
+          <span class="tag">TVP</span>
+          <span class="tag">Movituto</span>
+          <span class="tag">Chile Post</span>
+        </div>
+
+        <!-- ================= FICHA TÉCNICA ================= -->
+        <h2>Stack &amp; tecnologías</h2>
+        <div class="tech-list">
+          <span class="tag">Python</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">Web scraping</span>
+          <span class="tag">Excel (consolidación)</span>
+          <span class="tag">Ejecución programada</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
+  </footer>
+
+</body>
+</html>

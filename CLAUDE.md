@@ -157,7 +157,7 @@ server {
 | Proyecto | Descripción corta |
 |---|---|
 | **Kuppel Management** | ERP interno Django/SQL Server integrado con Softland Cloud via SOAP. Proyecto principal. |
-| **Automatización Logística** | Selenium scraping de plataformas de transporte (El Arriero, TVP) |
+| **Automatización Logística** | Selenium scraping de 4 transportistas (El Arriero, TVP, Movituto, Chile Post); consolida Cartas de Porte y estados de entrega en un Excel unificado |
 | **DB Explorer Tool** | Herramienta de análisis de BD sin SSMS, pensada para el ecosistema Softland |
 | **Automatización Brevo** | Mailing masivo y generación de comprobantes via API |
 | **Infraestructura HomeLab** | Ubuntu + Docker + Portainer + Cloudflare Tunnels |
