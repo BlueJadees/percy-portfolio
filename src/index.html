@@ -54,81 +54,78 @@
       </div>
     </section>
 
-    <!-- ================= TRAYECTORIA (CV) ================= -->
+    <!-- ================= TRAYECTORIA (CV) — HUD interactivo ================= -->
     <section id="trayectoria">
       <div class="container">
         <p class="section-label">01 / trayectoria</p>
         <h2 class="section-title">Trayectoria</h2>
-        <p class="contact-intro">
-          Mi recorrido profesional y formativo. <span class="accent-backend">●</span> experiencia laboral
-          · <span class="accent-gamedev">●</span> formación.
-        </p>
 
-        <div class="timeline">
-          <div class="timeline-item work">
-            <p class="timeline-date">Oct 2024 — Actualidad</p>
-            <span class="timeline-tag work">Trabajo</span>
-            <h3>Líder TI / Ingeniero de Software Full Stack</h3>
-            <p class="timeline-org">Comercial Kuppel SpA</p>
-            <p>Único responsable TI de la empresa: diseño, desarrollo y mantenimiento de toda la
-               infraestructura tecnológica. Re-implementé el ERP Softland en 30 días ante una crisis
-               crítica y construí desde cero el ERP interno Kuppel Management.</p>
+        <div class="hud">
+          <div class="hud-head">
+            <span class="hud-dot"></span>
+            <span class="hud-title">timeline.exe</span>
+            <span class="hud-hint">// selecciona un año</span>
           </div>
 
-          <div class="timeline-item study">
-            <p class="timeline-date">Noviembre 2025</p>
-            <span class="timeline-tag study">Formación</span>
-            <h3>Diplomatura en Diseño para la Producción de Videojuegos</h3>
-            <p class="timeline-org">Universidad Nacional de San Juan, Argentina</p>
-            <p>Diplomado obtenido tras la Game Jam donde nació Virals (2º lugar).</p>
-          </div>
+          <!-- Riel de nodos (los botones se generan en JS desde los datos) -->
+          <div class="hud-rail" id="hudRail" role="tablist" aria-label="Línea de tiempo por año"></div>
 
-          <div class="timeline-item study">
-            <p class="timeline-date">2025 — en proceso</p>
-            <span class="timeline-tag study">Formación</span>
-            <h3>Ingeniería en Informática</h3>
-            <p class="timeline-org">Instituto Profesional de Chile</p>
-            <p>Titulación en proceso, finalización estimada 2º semestre 2025. Práctica profesional
-               convalidable con la experiencia laboral actual.</p>
-          </div>
+          <!-- Panel de detalle -->
+          <div class="hud-panel" id="hudPanel" aria-live="polite"></div>
 
-          <div class="timeline-item work">
-            <p class="timeline-date">Abr 2024 — Oct 2024</p>
-            <span class="timeline-tag work">Trabajo</span>
-            <h3>Analista Programador</h3>
-            <p class="timeline-org">Agecob SpA</p>
-            <p>Sistema de mailing masivo automatizado, captura de datos vía APIs REST en SQL Server y
-               paneles de control en Power BI para toma de decisiones gerenciales.</p>
-          </div>
-
-          <div class="timeline-item study">
-            <p class="timeline-date">Julio 2024</p>
-            <span class="timeline-tag study">Formación</span>
-            <h3>Titulación — Analista Programador</h3>
-            <p class="timeline-org">INACAP · salida intermedia</p>
-            <p>Título de Analista Programador obtenido como salida intermedia de la carrera iniciada en
-               2017.</p>
-          </div>
-
-          <div class="timeline-item work">
-            <p class="timeline-date">Ene 2024 — Mar 2024</p>
-            <span class="timeline-tag work">Trabajo</span>
-            <h3>Analista Programador (Práctica)</h3>
-            <p class="timeline-org">Computec Chile Sociedad</p>
-            <p>Software interno de control de asistencia y optimización del sitio web corporativo, con
-               apoyo en auditorías de calidad ISO 9001:2015.</p>
-          </div>
-
-          <div class="timeline-item study">
-            <p class="timeline-date">2017 — 2023</p>
-            <span class="timeline-tag study">Formación</span>
-            <h3>Ingeniería en Informática (estudios)</h3>
-            <p class="timeline-org">Instituto Profesional INACAP</p>
-            <p>Inicio de mis estudios en informática tras trabajar como reponedor/carnicero. Pausé antes
-               de la práctica en 2023 para el proyecto de la banda; retomé y titulé como Analista
-               Programador en 2024.</p>
+          <div class="hud-legend">
+            <span><i class="lg lg-work"></i> Trabajo</span>
+            <span><i class="lg lg-study"></i> Formación</span>
+            <span><i class="lg lg-project"></i> Proyecto</span>
           </div>
         </div>
+
+        <!-- Datos de la trayectoria (leídos por el script; también sirven de fallback sin JS) -->
+        <script type="application/json" id="hudData">
+        [
+          {
+            "year": "2017",
+            "label": "Inicio",
+            "entries": [
+              { "type": "study", "title": "Ingeniería en Informática", "org": "Instituto Profesional INACAP", "desc": "Comienzo mis estudios en informática tras trabajar como reponedor y carnicero. El punto de partida de todo." }
+            ]
+          },
+          {
+            "year": "2018",
+            "label": "Coliseo",
+            "entries": [
+              { "type": "project", "title": "Fundación de Coliseo Smash", "org": "Comunidad · uno de 4 fundadores", "desc": "Primer torneo oficial de Super Smash Bros en la casa de un fundador. El inicio de una comunidad que llegaría hasta la final transmitida más grande de Chile." }
+            ]
+          },
+          {
+            "year": "2023",
+            "label": "Banda",
+            "entries": [
+              { "type": "study", "title": "Pausa de estudios (pre-práctica)", "org": "INACAP", "desc": "Detengo la carrera antes de la práctica para dedicarme al proyecto de la banda." },
+              { "type": "project", "title": "Polysteichon — gira nacional", "org": "Jugador de performance en vivo", "desc": "Gira por Chile como el jugador que terminaba Sonic 2 en vivo mientras la banda tocaba el OST. Termina en septiembre. En paralelo, sigo activo en Coliseo Smash." }
+            ]
+          },
+          {
+            "year": "2024",
+            "label": "Despegue",
+            "entries": [
+              { "type": "work", "title": "Analista Programador (Práctica)", "org": "Computec Chile · Ene–Mar", "desc": "Software interno de control de asistencia y optimización web, con apoyo en auditorías ISO 9001:2015." },
+              { "type": "work", "title": "Analista Programador", "org": "Agecob SpA · Abr–Oct", "desc": "Mailing masivo automatizado, captura de datos vía APIs REST en SQL Server y paneles Power BI para decisiones gerenciales." },
+              { "type": "study", "title": "Titulación — Analista Programador", "org": "INACAP · salida intermedia · Julio", "desc": "Obtengo el título como salida intermedia de la carrera iniciada en 2017." },
+              { "type": "work", "title": "Líder TI / Ing. Software Full Stack", "org": "Comercial Kuppel SpA · Oct–actualidad", "desc": "Único responsable TI. Re-implementé el ERP Softland en 30 días ante una crisis y construí desde cero el ERP interno Kuppel Management." },
+              { "type": "project", "title": "Cierre de etapa en Coliseo Smash", "org": "Comunidad (sigue viva)", "desc": "Me separo del proyecto para avanzar en lo personal y laboral, cerca de la misma época de mi titulación." }
+            ]
+          },
+          {
+            "year": "2025",
+            "label": "Actual",
+            "entries": [
+              { "type": "study", "title": "Ingeniería en Informática", "org": "Instituto Profesional de Chile · en proceso", "desc": "Titulación en proceso, finalización estimada 2º semestre 2025. Práctica convalidable con la experiencia laboral actual." },
+              { "type": "study", "title": "Diplomatura en Diseño de Videojuegos", "org": "Universidad Nacional de San Juan, Argentina · Noviembre", "desc": "Diplomado obtenido tras la Game Jam donde nació Virals (2º lugar)." }
+            ]
+          }
+        ]
+        </script>
       </div>
     </section>
 
@@ -310,46 +307,46 @@
           ¿Un proyecto backend, una colaboración indie, o simplemente conversar? Escríbeme por donde te acomode.
         </p>
 
-        <div class="contact-grid">
-          <a class="contact-card" href="mailto:percy.munoz08@gmail.com">
-            <span class="contact-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
-                <path d="M3 6l9 6 9-6"/>
-              </svg>
+        <div class="contact-bar">
+          <a class="contact-item" href="mailto:percy.munoz08@gmail.com">
+            <svg class="contact-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+              <path d="M3 6l9 6 9-6"/>
+            </svg>
+            <span class="contact-text">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">percy.munoz08@gmail.com</span>
             </span>
-            <span class="contact-label">Email</span>
-            <span class="contact-value">percy.munoz08@gmail.com</span>
           </a>
 
-          <a class="contact-card" href="https://github.com/BlueJadees" target="_blank" rel="noopener">
-            <span class="contact-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.34 9.34 0 015 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
-              </svg>
+          <a class="contact-item" href="https://github.com/BlueJadees" target="_blank" rel="noopener">
+            <svg class="contact-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.34 9.34 0 015 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+            </svg>
+            <span class="contact-text">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">github.com/BlueJadees</span>
             </span>
-            <span class="contact-label">GitHub</span>
-            <span class="contact-value">github.com/BlueJadees</span>
           </a>
 
-          <a class="contact-card" href="https://linkedin.com/in/percymumoz08/" target="_blank" rel="noopener">
-            <span class="contact-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
-              </svg>
+          <a class="contact-item" href="https://linkedin.com/in/percymumoz08/" target="_blank" rel="noopener">
+            <svg class="contact-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+            <span class="contact-text">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">in/percymumoz08</span>
             </span>
-            <span class="contact-label">LinkedIn</span>
-            <span class="contact-value">in/percymumoz08</span>
           </a>
 
-          <a class="contact-card" href="tel:+56949281669">
-            <span class="contact-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/>
-              </svg>
+          <a class="contact-item" href="tel:+56949281669">
+            <svg class="contact-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span class="contact-text">
+              <span class="contact-label">Teléfono</span>
+              <span class="contact-value">+56 9 4928 1669</span>
             </span>
-            <span class="contact-label">Teléfono</span>
-            <span class="contact-value">+56 9 4928 1669</span>
           </a>
         </div>
       </div>
@@ -361,6 +358,74 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: timeline HUD ================= -->
+  <script>
+    (function () {
+      var rail  = document.getElementById('hudRail');
+      var panel = document.getElementById('hudPanel');
+      var raw   = document.getElementById('hudData');
+      if (!rail || !panel || !raw) return;
+
+      var data;
+      try { data = JSON.parse(raw.textContent); }
+      catch (e) { return; }
+
+      var TYPE_LABEL = { work: 'Trabajo', study: 'Formación', project: 'Proyecto' };
+
+      function renderPanel(idx) {
+        var node = data[idx];
+        var html = '<div class="hud-panel-year">' + node.year +
+                   ' <span class="hud-panel-tag">' + node.label + '</span></div>';
+        html += '<div class="hud-entries">';
+        node.entries.forEach(function (e) {
+          html += '<div class="hud-entry ' + e.type + '">' +
+                    '<span class="hud-entry-type">' + (TYPE_LABEL[e.type] || '') + '</span>' +
+                    '<h3>' + e.title + '</h3>' +
+                    '<p class="hud-entry-org">' + e.org + '</p>' +
+                    '<p class="hud-entry-desc">' + e.desc + '</p>' +
+                  '</div>';
+        });
+        html += '</div>';
+        panel.innerHTML = html;
+      }
+
+      function select(idx) {
+        var nodes = rail.querySelectorAll('.hud-node');
+        nodes.forEach(function (n, i) {
+          var on = i === idx;
+          n.classList.toggle('active', on);
+          n.setAttribute('aria-selected', on ? 'true' : 'false');
+          n.tabIndex = on ? 0 : -1;
+        });
+        renderPanel(idx);
+      }
+
+      // Construir nodos
+      data.forEach(function (node, i) {
+        var btn = document.createElement('button');
+        btn.className = 'hud-node';
+        btn.type = 'button';
+        btn.setAttribute('role', 'tab');
+        btn.innerHTML = '<span class="hud-node-dot"></span>' +
+                        '<span class="hud-node-year">' + node.year + '</span>' +
+                        '<span class="hud-node-label">' + node.label + '</span>';
+        btn.addEventListener('click', function () { select(i); });
+        rail.appendChild(btn);
+      });
+
+      // Navegación con teclado (flechas)
+      rail.addEventListener('keydown', function (ev) {
+        var nodes = Array.prototype.slice.call(rail.querySelectorAll('.hud-node'));
+        var cur = nodes.findIndex(function (n) { return n.classList.contains('active'); });
+        if (ev.key === 'ArrowRight' && cur < nodes.length - 1) { select(cur + 1); nodes[cur + 1].focus(); }
+        if (ev.key === 'ArrowLeft'  && cur > 0)                { select(cur - 1); nodes[cur - 1].focus(); }
+      });
+
+      // Arrancar en el año más reciente
+      select(data.length - 1);
+    })();
+  </script>
 
 </body>
 </html>

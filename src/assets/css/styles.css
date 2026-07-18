@@ -131,9 +131,10 @@ header {
    Hero
    ============================================================ */
 #hero {
-  min-height: 70vh;
+  min-height: 56vh;
   display: flex;
   align-items: center;
+  padding: 3rem 0 1rem;
 }
 
 .hero-role {
@@ -301,56 +302,47 @@ a.card:hover .card-cta {
   margin: -1.5rem 0 2.5rem;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-}
-
-.contact-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 1rem;
-  row-gap: 0.15rem;
-  align-items: center;
+/* Barra de contacto: una sola tarjeta de ancho completo con 4 items en fila */
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
   background: var(--bg-2);
   border: 1px solid var(--bg-3);
-  border-radius: 10px;
-  padding: 1.15rem 1.3rem;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
 }
 
-.contact-card:hover {
-  background: var(--bg-3);
-  border-color: var(--teal);
-  transform: translateY(-3px);
-}
-
-.contact-icon {
-  grid-row: 1 / 3;
-  flex-shrink: 0;
+.contact-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 1.9rem;
-  height: 1.9rem;
-  border-radius: 7px;
-  background: var(--bg);
-  color: var(--teal);
-  transition: color 0.2s;
+  gap: 0.75rem;
+  flex: 1 1 220px;
+  min-width: 0;
+  transition: transform 0.2s;
 }
 
-.contact-icon svg {
-  display: block;
-  flex-shrink: 0;
-  width: 0.95rem;
-  height: 0.95rem;
+.contact-item:hover {
+  transform: translateY(-2px);
+}
+
+/* icono: tamaño FIJO (px) para que no se expanda nunca */
+.contact-ico {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  color: var(--teal);
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .contact-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -358,12 +350,13 @@ a.card:hover .card-cta {
 
 .contact-value {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text);
   word-break: break-word;
+  transition: color 0.2s;
 }
 
-.contact-card:hover .contact-value {
+.contact-item:hover .contact-value {
   color: var(--teal);
 }
 
@@ -389,91 +382,251 @@ a.card:hover .card-cta {
 }
 
 /* ============================================================
-   Timeline / Trayectoria (CV)
+   Trayectoria — panel HUD / sci-fi interactivo
    ============================================================ */
-.timeline {
+.hud {
   position: relative;
-  max-width: 46rem;
-  margin-top: 1rem;
-  padding-left: 1.75rem;
+  background:
+    linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
+    linear-gradient(135deg, rgba(45,212,191,0.5), rgba(56,189,248,0.15) 40%, transparent 70%) border-box;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem 1.5rem;
+  overflow: hidden;
 }
 
-/* línea vertical continua */
-.timeline::before {
+/* líneas de escaneo sutiles de fondo */
+.hud::before {
   content: "";
   position: absolute;
-  left: 0.32rem;
-  top: 0.4rem;
-  bottom: 0.4rem;
-  width: 2px;
-  background: var(--bg-3);
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(45, 212, 191, 0.035) 0,
+    rgba(45, 212, 191, 0.035) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.6;
 }
 
-.timeline-item {
-  position: relative;
-  padding: 0 0 2rem 0;
-}
+.hud > * { position: relative; z-index: 1; }
 
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-/* nodo en la línea */
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: calc(-1.75rem + 0.32rem);
-  top: 0.35rem;
-  transform: translateX(-50%);
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--muted);
-}
-
-/* color del nodo según tipo */
-.timeline-item.work::before   { border-color: var(--blue); }
-.timeline-item.study::before  { border-color: var(--amber, var(--teal)); }
-
-.timeline-date {
+/* cabecera tipo ventana de terminal */
+.hud-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--muted);
-  margin-bottom: 0.15rem;
+  border-bottom: 1px solid var(--bg-3);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.1rem;
 }
 
-.timeline-item h3 {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  margin-bottom: 0.1rem;
+.hud-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 8px var(--teal);
+  animation: hud-pulse 2s ease-in-out infinite;
 }
 
-.timeline-org {
-  font-size: 0.92rem;
-  color: var(--text);
-  margin-bottom: 0.35rem;
+@keyframes hud-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
 }
 
-.timeline-item p {
-  color: var(--muted);
-  font-size: 0.92rem;
+.hud-title { color: var(--text); font-weight: 700; }
+.hud-hint  { margin-left: auto; color: var(--muted); }
+
+/* riel horizontal de nodos */
+.hud-rail {
+  position: relative;
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  margin: 0.5rem 0 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
 }
 
-/* etiqueta trabajo/estudio */
-.timeline-tag {
-  display: inline-block;
+/* línea horizontal que conecta los nodos */
+.hud-rail::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0.5rem;
+  height: 2px;
+  background: linear-gradient(to right, var(--bg-3), var(--teal), var(--bg-3));
+  opacity: 0.5;
+}
+
+.hud-node {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 0.25rem;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.12rem 0.5rem;
-  border-radius: 999px;
-  margin-bottom: 0.4rem;
+  color: var(--muted);
+  transition: color 0.2s;
 }
 
-.timeline-tag.work  { color: var(--blue); border: 1px solid var(--blue); }
-.timeline-tag.study { color: var(--teal); border: 1px solid var(--teal); }
+.hud-node-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--muted);
+  transition: all 0.25s;
+}
+
+.hud-node-year {
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.hud-node-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.hud-node:hover .hud-node-dot {
+  border-color: var(--teal);
+}
+
+.hud-node:hover .hud-node-year { color: var(--text); }
+
+.hud-node.active {
+  color: var(--teal);
+}
+
+.hud-node.active .hud-node-dot {
+  border-color: var(--teal);
+  background: var(--teal);
+  box-shadow: 0 0 12px var(--teal);
+  transform: scale(1.15);
+}
+
+.hud-node.active .hud-node-year { color: var(--teal); }
+
+/* panel de detalle */
+.hud-panel {
+  min-height: 8rem;
+  animation: hud-fade 0.35s ease;
+}
+
+@keyframes hud-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hud-panel-year {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.hud-panel-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.hud-entries {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.hud-entry {
+  background: var(--bg);
+  border: 1px solid var(--bg-3);
+  border-left: 3px solid var(--muted);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+}
+
+.hud-entry.work    { border-left-color: var(--blue); }
+.hud-entry.study   { border-left-color: var(--teal); }
+.hud-entry.project { border-left-color: var(--coral); }
+
+.hud-entry-type {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hud-entry h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin: 0.25rem 0 0.15rem;
+}
+
+.hud-entry-org {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.hud-entry-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* leyenda */
+.hud-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--bg-3);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.hud-legend .lg {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 2px;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.lg-work    { background: var(--blue); }
+.lg-study   { background: var(--teal); }
+.lg-project { background: var(--coral); }
+
+/* sin JS: mostrar los datos crudos no aplica (van en <script>); el panel queda vacío
+   pero la sección no rompe. Con JS (default) todo funciona. */
 
 footer {
   border-top: 1px solid var(--bg-3);

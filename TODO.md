@@ -4,6 +4,9 @@ Pendientes de trabajo. Los más recientes arriba.
 
 ## Pendientes activos
 
+- [ ] **Verificar HUD en producción** — la timeline interactiva (nodos clicables) se
+      probó con screenshot headless; confirmar clic/teclado en navegador real.
+
 - [ ] **Panel de skills con barras de nivel** — listado de tecnologías con una barra
       de capacidad. Ej: Python — experto, C# — avanzado, Java — básico.
       (Definir con Percy los lenguajes/niveles exactos. El CV lista: Python avanzado,
@@ -17,7 +20,12 @@ Pendientes de trabajo. Los más recientes arriba.
       GitHub" con contribution graph vía ghchart.rshah.org tintado en turquesa.
       Commit f87d100.
 - [x] **Línea de tiempo (CV)** — hecho (2026-07-19): sección "Trayectoria" con timeline
-      combinado (trabajos + estudios). Commit f29188c.
+      combinado (trabajos + estudios). Commit f29188c. Rediseñada a HUD interactivo
+      horizontal (nodos clicables, estética sci-fi, JS) + Coliseo Smash y Polysteichon
+      añadidos para completar huecos.
+- [x] **Iconos de contacto ocupaban toda la pantalla** — corregido: SVG a tamaño px
+      fijo (20px), una sola tarjeta de ancho completo (.contact-bar). El bug era el
+      SVG en rem dentro de grid 1fr sin ancho garantizado.
 
 ## Pendientes de contenido (capturas / assets)
 
