@@ -170,6 +170,7 @@ server {
 ### Videojuegos Indie
 | Juego | Motor | Estado |
 |---|---|---|
+| **Earth-Builder** | Godot 4 (3D) + Blockbench | Proyecto personal más ambicioso. Híbrido RTS (StarCraft) + FP de automatización (Satisfactory): recursos + maquinaria para sostener conflicto entre razas en un planeta. Fase de diseño conceptual, prototipado y GDD. Sin roadmap cerrado; hay imágenes del prototipo (pendientes de subir). |
 | **Virals** | **Godot 3** | Party game caótico tipo WarioWare hecho en 48h de Game Jam (temática caótica). **2º lugar**, premiado con diplomado universitario. Colab con Gabriel Ladseatter (animador/diseñador). Publicado: https://jadees.itch.io/virals |
 | **Hunt the Space Dragon** | **GDevelop 5** (actual) → Godot 4 (port planeado) | Plataformero retrofuturista tributo NES/Famicom hecho en el ramo Taller de Videojuegos (nota 6.9/7). 2 niveles, mecánicas simples. Pixel art propio (Aseprite), solo audio open-source. Roadmap: port a Godot 4, más niveles/jefes, hub de época, paleta limitada. Jugable pero no publicado. |
 
