@@ -199,6 +199,18 @@ header {
   color: var(--teal);
 }
 
+/* Variante especiales del botón (coral/violeta) */
+.btn.btn-primary.accent-special-btn {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: var(--bg);
+}
+
+.btn.btn-primary.accent-special-btn:hover {
+  background: transparent;
+  color: var(--coral);
+}
+
 /* ============================================================
    Grid de proyectos (compartido por las tres secciones)
    ============================================================ */

@@ -178,7 +178,7 @@ server {
 | Proyecto | Descripción corta |
 |---|---|
 | **Satelite** | Asistente IA con interfaz de anime — Gemini API + IMAP + exportación Excel |
-| **Coliseo Smash** | Producción AV de torneos de fighting games — streaming, cámaras, comentarismo |
+| **Coliseo Smash** | Comunidad de Super Smash Bros (2018–2024, Percy se separó en 2024 pero sigue viva). Producción AV: streaming (Twitch/YouTube), cámaras/audio/video, control de layout, moderación, comentarismo, oficialización en start.gg. Hitos: eventos de anime (Game Expo, Ñoño Party, Game & Dance), Espacio Geek (Mall Plaza Alameda, Estación Central), y la final transmitida más grande de Chile 2023. Canales: youtube.com/@coliseosmash4205 · twitch.tv/coliseosmashcos |
 
 ---
 
