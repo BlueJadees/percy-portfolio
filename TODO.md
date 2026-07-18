@@ -2,20 +2,21 @@
 
 Pendientes de trabajo. Los más recientes arriba.
 
-## Para la próxima sesión (anotados 2026-07-18)
+## Pendientes activos
 
-- [ ] **Iconos de contacto enormes** — los SVG de la sección de contacto quedaron
-      demasiado grandes. Reducir el tamaño (revisar `.contact-icon` / `.contact-icon svg`
-      en `src/assets/css/styles.css`).
-- [ ] **Historial de push de GitHub** — investigar si se puede mostrar el gráfico de
-      contribuciones / actividad del perfil de GitHub (BlueJadees). Opciones a evaluar:
-      imagen del contribution graph, API de GitHub, o algún servicio embebible.
-      Ojo: la CSP/self-hosting puede limitar embeds externos — validar.
 - [ ] **Línea de tiempo (CV)** — sección de timeline mostrando trayectoria de
       trabajos y estudios (educación + experiencia laboral).
 - [ ] **Panel de skills con barras de nivel** — listado de tecnologías con una barra
       de capacidad. Ej: Python — experto, C# — avanzado, Java — básico.
       (Definir con Percy los lenguajes/niveles exactos.)
+
+## Completado
+
+- [x] **Iconos de contacto enormes** — corregido (2026-07-19): contenedor 2.2rem,
+      svg 1.1rem, con flex-shrink/display:block. Commit f87d100.
+- [x] **Historial de push de GitHub** — hecho (2026-07-19): sección "Actividad en
+      GitHub" con contribution graph vía ghchart.rshah.org tintado en turquesa.
+      Commit f87d100.
 
 ## Pendientes de contenido (capturas / assets)
 
