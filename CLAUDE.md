@@ -170,7 +170,7 @@ server {
 ### Videojuegos Indie
 | Juego | Motor | Estado |
 |---|---|---|
-| **Virals** | Godot 4 | Publicado en itch.io — mejor proyecto de la Game Jam (Diplomado UNSJ Argentina) |
+| **Virals** | **Godot 3** | Party game caótico tipo WarioWare hecho en 48h de Game Jam (temática caótica). **2º lugar**, premiado con diplomado universitario. Colab con Gabriel Ladseatter (animador/diseñador). Publicado: https://jadees.itch.io/virals |
 | **Hunt the Space Dragon** | Godot 4 | En desarrollo — port desde GDevelop 5, se embebera en el portafolio como HTML5 |
 
 ### Proyectos Especiales

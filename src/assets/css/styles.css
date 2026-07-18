@@ -187,6 +187,18 @@ header {
   color: var(--blue);
 }
 
+/* Variante gamedev del botón (secciones de juegos) */
+.btn.btn-primary.accent-gamedev-btn {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--bg);
+}
+
+.btn.btn-primary.accent-gamedev-btn:hover {
+  background: transparent;
+  color: var(--teal);
+}
+
 /* ============================================================
    Grid de proyectos (compartido por las tres secciones)
    ============================================================ */
