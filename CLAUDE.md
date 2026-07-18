@@ -171,7 +171,7 @@ server {
 | Juego | Motor | Estado |
 |---|---|---|
 | **Virals** | **Godot 3** | Party game caótico tipo WarioWare hecho en 48h de Game Jam (temática caótica). **2º lugar**, premiado con diplomado universitario. Colab con Gabriel Ladseatter (animador/diseñador). Publicado: https://jadees.itch.io/virals |
-| **Hunt the Space Dragon** | Godot 4 | En desarrollo — port desde GDevelop 5, se embebera en el portafolio como HTML5 |
+| **Hunt the Space Dragon** | **GDevelop 5** (actual) → Godot 4 (port planeado) | Plataformero retrofuturista tributo NES/Famicom hecho en el ramo Taller de Videojuegos (nota 6.9/7). 2 niveles, mecánicas simples. Pixel art propio (Aseprite), solo audio open-source. Roadmap: port a Godot 4, más niveles/jefes, hub de época, paleta limitada. Jugable pero no publicado. |
 
 ### Proyectos Especiales
 | Proyecto | Descripción corta |

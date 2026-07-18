@@ -447,6 +447,31 @@ footer {
   color: var(--text);
 }
 
+/* Roadmap / lista de estado (proyectos en desarrollo) */
+.roadmap {
+  list-style: none;
+  max-width: 46rem;
+  margin: 1rem 0 2rem;
+}
+
+.roadmap li {
+  padding: 0.5rem 0 0.5rem 2rem;
+  position: relative;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.roadmap li::before {
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.roadmap li.done       { color: var(--text); }
+.roadmap li.done::before    { content: "✓"; color: var(--teal); }
+.roadmap li.todo::before    { content: "○"; color: var(--muted); }
+
 /* ============================================================
    Responsive
    ============================================================ */
