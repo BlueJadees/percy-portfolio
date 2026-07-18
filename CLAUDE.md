@@ -159,7 +159,7 @@ server {
 | **Kuppel Management** | ERP interno Django/SQL Server integrado con Softland Cloud via SOAP. Proyecto principal. |
 | **Automatización Logística** | Selenium scraping de 4 transportistas (El Arriero, TVP, Movituto, Chile Post); consolida Cartas de Porte y estados de entrega en un Excel unificado |
 | **DB Explorer Tool** | Utilidad interna personal (Python) para explorar la BD espejo SQL Server: búsqueda de valores por toda la BD, mapa de tablas/columnas, cruce de 2 campos. **No es card propia** — se menciona como tooling de apoyo dentro de la página de Kuppel. |
-| **Automatización Brevo** | Mailing masivo y generación de comprobantes via API |
+| **Automatización de Cobranza** (Agecob) | Modernización de datos y campañas para cobranza extrajudicial: esquema SQL Server (reemplaza Excel masivo), campañas de correo automatizadas con Selenium/Pandas (correos vía Brevo), scraping del CRM NeoHotel → SharePoint → dashboard Power BI. Carteras de Falabella/Paris. |
 | **Infraestructura HomeLab** | Ubuntu + Docker + Portainer + Cloudflare Tunnels |
 
 ### Videojuegos Indie
