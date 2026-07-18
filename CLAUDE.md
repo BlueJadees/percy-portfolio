@@ -153,6 +153,11 @@ server {
 
 ## Proyectos que se muestran en el portafolio
 
+> **Frameworks (importante):** el framework principal de Percy es **Flask**, usado en la mayoría de
+> sus proyectos web (incluidos los personales del HomeLab como Satelite, Nexo). **Django** se usó
+> específicamente en **Kuppel Management**. No asumir Django por defecto. Los proyectos de
+> scraping/automatización (Logística, Cobranza) no usan framework web — son scripts con Selenium/Pandas.
+
 ### Backend & Arquitectura
 | Proyecto | Descripción corta |
 |---|---|
