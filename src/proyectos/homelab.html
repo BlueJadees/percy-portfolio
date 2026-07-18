@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infraestructura HomeLab — Percy Muñoz</title>
+  <meta name="description" content="Un notebook reciclado convertido en servidor de producción: Linux + Docker + Portainer + Cloudflare Tunnels, alojando varios proyectos personales en línea sin exponer la red del hogar. Incluido este portafolio.">
+
+  <link rel="icon" href="../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">percy.muñoz<span class="accent-gamedev">_</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#backend">Backend</a></li>
+        <li><a href="../index.html#juegos">Juegos</a></li>
+        <li><a href="../index.html#especiales">Especiales</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO DEL PROYECTO ================= -->
+    <section class="project-hero">
+      <div class="container">
+        <a href="../index.html#backend" class="back-link">← Volver al portafolio</a>
+
+        <div class="project-meta">
+          <span class="tag">Backend</span>
+          <span class="tag">Infraestructura · DevOps</span>
+          <span class="tag">Proyecto personal</span>
+        </div>
+
+        <h1 class="project-title">Infraestructura <span class="accent-backend">HomeLab</span></h1>
+        <p class="project-subtitle">
+          Un notebook que tenía tirado, revivido como servidor propio de producción. Aloja mis
+          proyectos personales en línea —incluido este portafolio— sin exponer la seguridad de mi
+          hogar y sin pagar mensualidad a un PaaS.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CUERPO DEL CASO ================= -->
+    <section class="project-body">
+      <div class="container">
+
+        <p class="lead">
+          Todo empezó con una motivación concreta: quería la comodidad de algo como PythonAnywhere
+          —desplegar proyectos y verlos en línea desde cualquier lado— pero <strong>gratis</strong> y
+          <strong>sin la limitación</strong> de estar atado solo a Python con Django o Flask. La
+          solución fue construir mi propio servidor.
+        </p>
+
+        <p>
+          Tomé un notebook que tenía sin uso, le instalé <strong>Linux</strong> y monté
+          <strong>Docker</strong> gestionado con <strong>Portainer</strong>. Desde ahí configuro cada
+          proyecto como un <strong>stack</strong> independiente. Para publicarlos en internet usando mi
+          propia conexión —pero sin exponer la red de mi casa— uso <strong>Cloudflare Tunnels</strong>,
+          y contraté el dominio <strong>tecg8n.xyz</strong> (el más barato que encontré) para dar de
+          alta subdominios por proyecto. Con eso puedo levantar y probar proyectos en línea sin importar
+          dónde esté.
+        </p>
+
+        <!-- Captura del proyecto (pendiente) -->
+        <div class="shot-placeholder">
+          [ Captura pendiente — Portainer con los stacks corriendo / diagrama del HomeLab ]
+        </div>
+
+        <!-- ================= EL FLUJO ================= -->
+        <h2>Mi ciclo de desarrollo</h2>
+        <p>
+          El HomeLab es la última pieza de un flujo que repito en casi todos mis proyectos:
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>1 · Desarrollo</h3>
+            <p>
+              VS Code para construir el proyecto, con un ambiente de desarrollo local para iterar
+              rápido antes de publicar.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>2 · Control de versiones</h3>
+            <p>
+              GitHub como control de versiones y respaldo: cada cambio queda commiteado y pusheado
+              antes de llegar a producción.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>3 · Producción</h3>
+            <p>
+              El servidor personal con Docker: cada proyecto es un stack en Portainer que se despliega
+              y queda en línea a través de Cloudflare.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= PROYECTOS ALOJADOS ================= -->
+        <h2>Corriendo ahora en el HomeLab</h2>
+        <p>
+          El servidor no es un experimento apagado: aloja varios proyectos personales en producción.
+        </p>
+        <ul class="hosted-list">
+          <li><strong>Portafolio</strong> — este mismo sitio.</li>
+          <li><strong>Satelite</strong> — asistente IA conectado por API a Gemini que lee mis correos de trabajo.</li>
+          <li><strong>Nexo</strong> — plataforma central que expone rápidamente todas mis aplicaciones.</li>
+          <li><strong>Panel IA</strong> — generación de imágenes self-hosted con ComfyUI.</li>
+          <li><strong>Master</strong> — la instancia de Portainer que gobierna todo lo anterior.</li>
+        </ul>
+
+        <!-- ================= FICHA TÉCNICA ================= -->
+        <h2>Stack &amp; tecnologías</h2>
+        <div class="tech-list">
+          <span class="tag">Linux</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Portainer</span>
+          <span class="tag">Cloudflare Tunnels</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">Dominio propio (tecg8n.xyz)</span>
+          <span class="tag">Hardware reciclado</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
+  </footer>
+
+</body>
+</html>

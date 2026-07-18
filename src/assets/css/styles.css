@@ -417,6 +417,24 @@ footer {
   margin: 1rem 0 2rem;
 }
 
+/* Lista de proyectos alojados (HomeLab) */
+.hosted-list {
+  list-style: none;
+  max-width: 46rem;
+  margin: 1rem 0 2rem;
+}
+
+.hosted-list li {
+  padding: 0.6rem 0 0.6rem 1.1rem;
+  border-left: 2px solid var(--teal);
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+}
+
+.hosted-list li strong {
+  color: var(--text);
+}
+
 /* ============================================================
    Responsive
    ============================================================ */

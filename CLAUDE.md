@@ -160,7 +160,7 @@ server {
 | **Automatización Logística** | Selenium scraping de 4 transportistas (El Arriero, TVP, Movituto, Chile Post); consolida Cartas de Porte y estados de entrega en un Excel unificado |
 | **DB Explorer Tool** | Utilidad interna personal (Python) para explorar la BD espejo SQL Server: búsqueda de valores por toda la BD, mapa de tablas/columnas, cruce de 2 campos. **No es card propia** — se menciona como tooling de apoyo dentro de la página de Kuppel. |
 | **Automatización de Cobranza** (Agecob) | Modernización de datos y campañas para cobranza extrajudicial: esquema SQL Server (reemplaza Excel masivo), campañas de correo automatizadas con Selenium/Pandas (correos vía Brevo), scraping del CRM NeoHotel → SharePoint → dashboard Power BI. Carteras de Falabella/Paris. |
-| **Infraestructura HomeLab** | Ubuntu + Docker + Portainer + Cloudflare Tunnels |
+| **Infraestructura HomeLab** | Notebook reciclado → servidor propio: Linux + Docker + Portainer + Cloudflare Tunnels (dominio tecg8n.xyz). Aloja en producción: este portafolio, Satelite, Nexo, Panel IA (ComfyUI, se menciona sin NSFW en el sitio) y Master (Portainer). |
 
 ### Videojuegos Indie
 | Juego | Motor | Estado |
