@@ -568,6 +568,117 @@ a.card:hover .card-cta {
 }
 
 /* ============================================================
+   Skills — nivel (barra 3 segmentos) + chips
+   ============================================================ */
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skill-cat {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--bg-3);
+}
+
+.skill-cat::before {
+  content: "▸ ";
+  opacity: 0.7;
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.skill {
+  background: var(--bg-2);
+  border: 1px solid var(--bg-3);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.skill:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.skill-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.skill-ico {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  color: var(--teal);
+  display: flex;
+}
+
+.skill-ico svg { width: 16px; height: 16px; }
+
+.skill-name {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.skill-level-txt {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+/* barra de 3 segmentos */
+.skill-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0.7rem;
+}
+
+.skill-bar .seg {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-3);
+}
+
+.skill-bar .seg.on {
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--bg-3);
+  color: var(--muted);
+}
+
+/* ============================================================
    Trayectoria — panel HUD / sci-fi interactivo
    ============================================================ */
 .hud {

@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=3">
+  <link rel="stylesheet" href="assets/css/styles.css?v=4">
 </head>
 <body>
 
@@ -28,6 +28,7 @@
         <li><a href="#trayectoria">Trayectoria</a></li>
         <li><a href="#backend">Backend</a></li>
         <li><a href="#actividad">Actividad</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#juegos">Juegos</a></li>
         <li><a href="#especiales">Especiales</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -215,10 +216,72 @@
       </div>
     </section>
 
+    <!-- ================= SKILLS ================= -->
+    <section id="skills">
+      <div class="container">
+        <p class="section-label">04 / skills</p>
+        <h2 class="section-title">Habilidades <span class="accent-backend">técnicas</span></h2>
+        <p class="contact-intro">
+          Cada skill con su nivel (■□□ básico · ■■□ medio · ■■■ avanzado) y las tecnologías con las que la aplico.
+        </p>
+
+        <div class="skills" id="skillsMount"></div>
+
+        <script type="application/json" id="skillsData">
+        {
+          "Backend": [
+            { "name": "Python", "level": 3, "chips": ["Django", "Flask", "Pandas", "Selenium"] },
+            { "name": "Flask", "level": 3, "chips": ["REST APIs", "IMAP", "Jinja"] },
+            { "name": "Django", "level": 3, "chips": ["ORM", "SOAP", "SQL Server"] },
+            { "name": "C# / .NET", "level": 2, "chips": ["POO"] },
+            { "name": "PHP", "level": 2, "chips": ["WordPress", "WooCommerce"] },
+            { "name": "Node.js", "level": 1, "chips": ["JavaScript"] }
+          ],
+          "Frontend": [
+            { "name": "JavaScript", "level": 2, "chips": ["DOM", "Fetch API"] },
+            { "name": "HTML5 / CSS3", "level": 3, "chips": ["Flexbox", "Grid", "Responsive"] },
+            { "name": "WordPress", "level": 2, "chips": ["WooCommerce"] }
+          ],
+          "Bases de datos": [
+            { "name": "SQL Server", "level": 3, "chips": ["T-SQL", "Migraciones", "Constraints", "Auditoría"] },
+            { "name": "PostgreSQL", "level": 2, "chips": ["SQL"] },
+            { "name": "MySQL", "level": 2, "chips": ["SQL"] }
+          ],
+          "DevOps / Infra": [
+            { "name": "Docker", "level": 3, "chips": ["Portainer", "Compose"] },
+            { "name": "Linux (Ubuntu)", "level": 2, "chips": ["Servidor", "Redes locales"] },
+            { "name": "Cloudflare", "level": 2, "chips": ["Tunnels", "DNS"] },
+            { "name": "Git", "level": 3, "chips": ["GitHub", "Control de versiones"] }
+          ],
+          "Data & BI": [
+            { "name": "Power BI", "level": 3, "chips": ["DAX", "Power Query"] },
+            { "name": "Pandas", "level": 3, "chips": ["ETL", "Auditoría de datos"] },
+            { "name": "APIs de IA", "level": 2, "chips": ["Gemini", "Anthropic"] }
+          ],
+          "Integración": [
+            { "name": "SOAP / WSDL", "level": 3, "chips": ["ERP Softland", "XML"] },
+            { "name": "REST APIs", "level": 3, "chips": ["JSON", "IMAP"] }
+          ],
+          "Game Dev": [
+            { "name": "Godot 4", "level": 2, "chips": ["GDScript", "3D", "2D"] },
+            { "name": "GDevelop 5", "level": 2, "chips": ["Eventos"] },
+            { "name": "Pixel Art", "level": 2, "chips": ["Aseprite"] },
+            { "name": "Blockbench", "level": 1, "chips": ["Modelado 3D"] }
+          ],
+          "Metodologías": [
+            { "name": "Arquitectura SOA", "level": 3, "chips": ["Integración de sistemas"] },
+            { "name": "MVC · DRY", "level": 3, "chips": ["Código mantenible"] },
+            { "name": "Desarrollo ágil", "level": 2, "chips": ["Resolución de crisis"] }
+          ]
+        }
+        </script>
+      </div>
+    </section>
+
     <!-- ================= VIDEOJUEGOS INDIE ================= -->
     <section id="juegos">
       <div class="container">
-        <p class="section-label">04 / gamedev</p>
+        <p class="section-label">05 / gamedev</p>
         <h2 class="section-title">Videojuegos <span class="accent-gamedev">Indie</span></h2>
 
         <div class="cards">
@@ -258,7 +321,7 @@
     <!-- ================= PROYECTOS ESPECIALES ================= -->
     <section id="especiales">
       <div class="container">
-        <p class="section-label">05 / especiales</p>
+        <p class="section-label">06 / especiales</p>
         <h2 class="section-title">Proyectos <span class="accent-special">Especiales</span></h2>
 
         <div class="cards">
@@ -318,7 +381,7 @@
     <!-- ================= CONTACTO ================= -->
     <section id="contacto">
       <div class="container">
-        <p class="section-label">06 / contacto</p>
+        <p class="section-label">07 / contacto</p>
         <h2 class="section-title">Hablemos</h2>
         <p class="contact-intro">
           ¿Un proyecto backend, una colaboración indie, o simplemente conversar? Escríbeme por donde te acomode.
@@ -375,6 +438,60 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: skills ================= -->
+  <script>
+    (function () {
+      var mount = document.getElementById('skillsMount');
+      var raw = document.getElementById('skillsData');
+      if (!mount || !raw) return;
+
+      var groups;
+      try { groups = JSON.parse(raw.textContent); }
+      catch (e) { return; }
+
+      var LEVEL_LABEL = { 1: 'básico', 2: 'medio', 3: 'avanzado' };
+
+      // iconos SVG inline por skill (path simplificado / marcador genérico si no hay)
+      function icon(name) {
+        var key = name.toLowerCase();
+        // punto/terminal genérico como marcador consistente
+        var generic = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>';
+        return generic;
+      }
+
+      var html = '';
+      Object.keys(groups).forEach(function (cat) {
+        html += '<div class="skill-group">';
+        html += '<h3 class="skill-cat">' + cat + '</h3>';
+        html += '<div class="skill-list">';
+        groups[cat].forEach(function (s) {
+          html += '<div class="skill">';
+          html += '<div class="skill-head">';
+          html += '<span class="skill-ico">' + icon(s.name) + '</span>';
+          html += '<span class="skill-name">' + s.name + '</span>';
+          html += '<span class="skill-level-txt">' + (LEVEL_LABEL[s.level] || '') + '</span>';
+          html += '</div>';
+          // barra de 3 segmentos
+          html += '<div class="skill-bar" aria-label="Nivel: ' + (LEVEL_LABEL[s.level] || '') + '">';
+          for (var i = 1; i <= 3; i++) {
+            html += '<span class="seg' + (i <= s.level ? ' on' : '') + '"></span>';
+          }
+          html += '</div>';
+          // chips
+          if (s.chips && s.chips.length) {
+            html += '<div class="skill-chips">';
+            s.chips.forEach(function (c) { html += '<span class="chip">' + c + '</span>'; });
+            html += '</div>';
+          }
+          html += '</div>';
+        });
+        html += '</div></div>';
+      });
+
+      mount.innerHTML = html;
+    })();
+  </script>
 
   <!-- ================= SCRIPT: heatmap de GitHub ================= -->
   <script>
