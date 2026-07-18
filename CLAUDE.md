@@ -178,7 +178,8 @@ server {
 | Proyecto | Descripción corta |
 |---|---|
 | **Satelite** | Asistente IA con interfaz de anime — Gemini API + IMAP + exportación Excel |
-| **Coliseo Smash** | Comunidad de Super Smash Bros (2018–2024, Percy se separó en 2024 pero sigue viva). Producción AV: streaming (Twitch/YouTube), cámaras/audio/video, control de layout, moderación, comentarismo, oficialización en start.gg. Hitos: eventos de anime (Game Expo, Ñoño Party, Game & Dance), Espacio Geek (Mall Plaza Alameda, Estación Central), y la final transmitida más grande de Chile 2023. Canales: youtube.com/@coliseosmash4205 · twitch.tv/coliseosmashcos |
+| **Coliseo Smash** | Comunidad de Super Smash Bros (2018–2024, Percy se separó en 2024 pero sigue viva). **Percy fue uno de los 4 fundadores.** Producción AV: streaming (Twitch/YouTube), cámaras/audio/video, control de layout, moderación, comentarismo, oficialización en start.gg. Hitos: eventos de anime (Game Expo, Ñoño Party, Game & Dance), Espacio Geek (Mall Plaza Alameda, Estación Central), y la final transmitida más grande de Chile 2023. Canales: youtube.com/@coliseosmash4205 · twitch.tv/coliseosmashcos |
+| **Polysteichon** | Banda de videojuegos (gira nacional 2023). Rol de Percy: **jugador de performance en vivo** (NO músico) — terminaba Sonic 2 (Sega) en <50 min en vivo mientras la banda tocaba el OST con variaciones según power-ups; nada grabado. Escenarios: Expo Anime, Gamer City, Festi Game + Talca, Osorno, Puerto Montt, Valparaíso, Villa Alemana, Mall Plaza Egaña. Invicto salvo 1 show (bar en Talca). La banda luego se mudó a España; Percy no siguió. |
 
 ---
 
