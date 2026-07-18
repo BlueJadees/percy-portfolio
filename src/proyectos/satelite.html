@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satelite — Percy Muñoz</title>
+  <meta name="description" content="Satelite: asistente IA con interfaz de anime que lee correos no leídos vía IMAP y procesa solicitudes empresariales, conectado a Gemini. Alojado en el HomeLab. Proyecto funcional en evolución.">
+
+  <link rel="icon" href="../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">percy.muñoz<span class="accent-gamedev">_</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#backend">Backend</a></li>
+        <li><a href="../index.html#juegos">Juegos</a></li>
+        <li><a href="../index.html#especiales">Especiales</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO DEL PROYECTO ================= -->
+    <section class="project-hero">
+      <div class="container">
+        <a href="../index.html#especiales" class="back-link">← Volver al portafolio</a>
+
+        <div class="project-meta">
+          <span class="tag">Proyecto personal</span>
+          <span class="tag">IA · Automatización</span>
+          <span class="tag">HomeLab</span>
+        </div>
+
+        <h1 class="project-title">Satelite</h1>
+        <p class="project-subtitle">
+          Un asistente de IA con interfaz de anime que lee mis correos no leídos vía IMAP y procesa las
+          solicitudes que llegan por correo empresarial. Conectado a Gemini y alojado en mi HomeLab.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CUERPO DEL CASO ================= -->
+    <section class="project-body">
+      <div class="container">
+
+        <p class="lead">
+          Satelite nació con una visión de dos frentes: convertir la bandeja de entrada en algo que una
+          IA pudiera leer y actuar sobre ella, con una interfaz amigable de estética anime que le diera
+          personalidad al asistente.
+        </p>
+
+        <p>
+          El <strong>primer frente</strong> —ya funcional— es la lectura de correos: Satelite se conecta
+          por <strong>IMAP</strong>, detecta los correos <strong>no leídos</strong> y procesa las
+          solicitudes que llegan por correo empresarial, apoyándose en <strong>Gemini</strong> para
+          interpretar el contenido.
+        </p>
+
+        <p>
+          El <strong>segundo frente</strong> era más ambicioso: enseñarle la base de datos de la empresa
+          para que generara los <strong>informes en Excel</strong> que se pedían por correo —con
+          aprobación manual antes de enviarlos—, produciéndolos a partir de los datos reales. El
+          proyecto llegó hasta la lectura de correos: la generación de informes quedó frenada por la
+          falta de <strong>tokens consistentes en Gemini</strong>, así que Satelite se estabilizó como
+          un asistente de correo sólido, a la espera de retomar esa segunda etapa.
+        </p>
+
+        <!-- Captura del proyecto (pendiente) -->
+        <div class="shot-placeholder">
+          [ Captura pendiente — interfaz de anime de Satelite leyendo correos ]
+        </div>
+
+        <!-- ================= CAPACIDADES ================= -->
+        <h2>Qué hace hoy</h2>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>Lectura de correos IMAP</h3>
+            <p>
+              Se conecta por IMAP y detecta los correos no leídos, sin depender de reglas manuales ni de
+              revisar la bandeja a mano.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Procesamiento con IA</h3>
+            <p>
+              Usa Gemini para interpretar el contenido de las solicitudes que llegan por correo
+              empresarial y extraer lo relevante.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Interfaz con personalidad</h3>
+            <p>
+              Una interfaz de estética anime que le da cara al asistente, en lugar de un panel plano de
+              automatización.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Es un <strong>proyecto funcional pero en evolución</strong>: la base de asistente de correo
+          está sólida, y la generación de informes desde la base de datos es la mejora natural cuando el
+          presupuesto de tokens lo permita.
+        </p>
+
+        <!-- ================= FICHA TÉCNICA ================= -->
+        <h2>Stack &amp; tecnologías</h2>
+        <div class="tech-list">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Gemini API</span>
+          <span class="tag">IMAP</span>
+          <span class="tag">Docker (HomeLab)</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
+  </footer>
+
+</body>
+</html>

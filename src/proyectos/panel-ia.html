@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel IA — Percy Muñoz</title>
+  <meta name="description" content="Panel IA: plataforma web en Flask construida sobre ComfyUI para generación de imágenes y video con IA. Bóveda de LoRAs con integración a CivitAI, galería, generación de video con Wan2.1-I2V, integración con Danbooru y utilidades de prompt. Autoalojada en el HomeLab.">
+
+  <link rel="icon" href="../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">percy.muñoz<span class="accent-gamedev">_</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#backend">Backend</a></li>
+        <li><a href="../index.html#juegos">Juegos</a></li>
+        <li><a href="../index.html#especiales">Especiales</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO DEL PROYECTO ================= -->
+    <section class="project-hero">
+      <div class="container">
+        <a href="../index.html#especiales" class="back-link">← Volver al portafolio</a>
+
+        <div class="project-meta">
+          <span class="tag">Proyecto personal</span>
+          <span class="tag">IA generativa</span>
+          <span class="tag">HomeLab</span>
+        </div>
+
+        <h1 class="project-title">Panel <span class="accent-special">IA</span></h1>
+        <p class="project-subtitle">
+          Una plataforma web propia construida sobre ComfyUI para generar imágenes y video con IA, con
+          gestión de modelos, galería y utilidades de flujo de trabajo. Uno de los proyectos a los que
+          más tiempo le he dedicado.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CUERPO DEL CASO ================= -->
+    <section class="project-body">
+      <div class="container">
+
+        <p class="lead">
+          Panel IA envuelve <strong>ComfyUI</strong> en una <strong>aplicación web hecha en
+          Flask</strong>, transformando un motor potente pero técnico en una herramienta de trabajo
+          cómoda, con todo el flujo de generación integrado en una sola interfaz autoalojada.
+        </p>
+
+        <p>
+          El foco estuvo en <strong>agilizar el flujo de trabajo</strong> de la generación de imágenes.
+          La pieza central es una <strong>bóveda de LoRAs</strong> (modelos de ajuste fino): la
+          plataforma incluye una herramienta propia para <strong>descargar y subir LoRAs</strong>
+          directamente desde <strong>CivitAI</strong> a esa bóveda, resolviendo la gestión de modelos
+          sin salir de la aplicación.
+        </p>
+
+        <p>
+          Alrededor de eso construí un ecosistema de utilidades: un <strong>sistema de galería</strong>
+          para las generaciones, <strong>creación de video</strong> con <strong>Wan2.1-I2V</strong>,
+          integración con la <strong>API de Danbooru</strong>, <strong>traducción de prompts</strong>
+          vía Google Translate, y herramientas para <strong>mejorar la calidad</strong> de las imágenes.
+        </p>
+
+        <p>
+          Más allá de lo personal, usé Panel IA como banco de <strong>pruebas de concepto</strong>:
+          exploración visual de <strong>personajes e imágenes para mis videojuegos</strong> y para
+          conceptos de empresa — un entorno propio para prototipar arte rápido antes de comprometer
+          tiempo de producción.
+        </p>
+
+        <!-- Captura del proyecto (pendiente) -->
+        <div class="shot-placeholder">
+          [ Captura pendiente — interfaz de Panel IA (galería / bóveda de LoRAs) ]
+        </div>
+
+        <!-- ================= CAPACIDADES ================= -->
+        <h2>Capacidades</h2>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>Bóveda de LoRAs + CivitAI</h3>
+            <p>
+              Gestión de modelos LoRA con descarga y subida directa desde CivitAI a una bóveda local,
+              integrada en la propia plataforma.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Imagen y video</h3>
+            <p>
+              Generación de imágenes sobre ComfyUI y de video mediante Wan2.1-I2V, con un sistema de
+              galería para organizar los resultados.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Utilidades de prompt</h3>
+            <p>
+              Integración con la API de Danbooru, traducción de prompts vía Google Translate y
+              herramientas para mejorar la calidad de las imágenes.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= FICHA TÉCNICA ================= -->
+        <h2>Stack &amp; tecnologías</h2>
+        <div class="tech-list">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">ComfyUI</span>
+          <span class="tag">Wan2.1-I2V (video)</span>
+          <span class="tag">API CivitAI</span>
+          <span class="tag">API Danbooru</span>
+          <span class="tag">Google Translate API</span>
+          <span class="tag">Docker (HomeLab)</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
+  </footer>
+
+</body>
+</html>

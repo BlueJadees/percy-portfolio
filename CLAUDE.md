@@ -177,7 +177,10 @@ server {
 ### Proyectos Especiales
 | Proyecto | Descripción corta |
 |---|---|
-| **Satelite** | Asistente IA con interfaz de anime — Gemini API + IMAP + exportación Excel |
+| **Satelite** | Asistente IA (interfaz anime) alojado en HomeLab. Lee correos no leídos vía IMAP y procesa solicitudes empresariales con Gemini. Frente 2 (generar informes Excel desde la BD de la empresa, con aprobación manual) quedó frenado por falta de tokens consistentes de Gemini → estabilizado como asistente de correo. Flask. Funcional pero en evolución. |
+| **Panel IA** | Plataforma web Flask sobre ComfyUI (HomeLab) para generación de imagen/video IA. Bóveda de LoRAs con descarga/subida desde CivitAI, galería, video con Wan2.1-I2V, API Danbooru, traducción de prompts (Google Translate), mejora de calidad. **Tiene componente NSFW que NO se expone en el sitio** — se presenta por arquitectura técnica + uso como PoC de personajes/arte para juegos y empresas. |
+| **Nexo** | Hub central del HomeLab con temática de nave espacial: panel único que reúne todas las apps autoalojadas. Un poco abandonado. Card simple (sin página de detalle). |
+| **Portafolio** | Este mismo sitio. No tiene card propia — estar dentro de él es la demostración. |
 | **Coliseo Smash** | Comunidad de Super Smash Bros (2018–2024, Percy se separó en 2024 pero sigue viva). **Percy fue uno de los 4 fundadores.** Producción AV: streaming (Twitch/YouTube), cámaras/audio/video, control de layout, moderación, comentarismo, oficialización en start.gg. Hitos: eventos de anime (Game Expo, Ñoño Party, Game & Dance), Espacio Geek (Mall Plaza Alameda, Estación Central), y la final transmitida más grande de Chile 2023. Canales: youtube.com/@coliseosmash4205 · twitch.tv/coliseosmashcos |
 | **Polysteichon** | Banda de videojuegos (gira nacional 2023). Rol de Percy: **jugador de performance en vivo** (NO músico) — terminaba Sonic 2 (Sega) en <50 min en vivo mientras la banda tocaba el OST con variaciones según power-ups; nada grabado. Escenarios: Expo Anime, Gamer City, Festi Game + Talca, Osorno, Puerto Montt, Valparaíso, Villa Alemana, Mall Plaza Egaña. Invicto salvo 1 show (bar en Talca). La banda luego se mudó a España; Percy no siguió. |
 
