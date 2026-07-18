@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuppel Management — Percy Muñoz</title>
+  <meta name="description" content="Kuppel Management: plataforma web Django que extiende el ERP Softland Cloud de Comercial Kuppel SPA con reportería, dashboards, conciliaciones bancarias, gestión de deudas y una plataforma de ventas independiente.">
+
+  <link rel="icon" href="../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">percy.muñoz<span class="accent-gamedev">_</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#backend">Backend</a></li>
+        <li><a href="../index.html#juegos">Juegos</a></li>
+        <li><a href="../index.html#especiales">Especiales</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO DEL PROYECTO ================= -->
+    <section class="project-hero">
+      <div class="container">
+        <a href="../index.html#backend" class="back-link">← Volver al portafolio</a>
+
+        <div class="project-meta">
+          <span class="tag">Backend</span>
+          <span class="tag">Proyecto principal</span>
+          <span class="tag">Comercial Kuppel SPA</span>
+        </div>
+
+        <h1 class="project-title">Kuppel <span class="accent-backend">Management</span></h1>
+        <p class="project-subtitle">
+          Plataforma web que extiende el ERP Softland Cloud para cubrir sus huecos de información:
+          nació como reportería y creció hasta convertirse en el sistema híbrido de datos, control
+          y ventas de la empresa.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CUERPO DEL CASO ================= -->
+    <section class="project-body">
+      <div class="container">
+
+        <p class="lead">
+          En Comercial Kuppel SPA operamos con el ERP <strong>Softland</strong> en su versión Cloud.
+          El sistema funciona bien para la operación, pero muestra la información de forma incómoda:
+          sus dashboards e informes descargables no bastaban para tomar decisiones ni evaluar la
+          situación de la empresa con agilidad.
+        </p>
+
+        <p>
+          Kuppel Management se construyó para cerrar esa brecha. Se conecta a la <strong>base de datos
+          espejo SQL Server</strong> contratada con Softland y, desde ahí, entrega la información que
+          el ERP no sabía presentar. Está desarrollado en <strong>Python + Django</strong>, desplegado
+          como aplicación web en <strong>PythonAnywhere</strong>, con respaldo de base de datos y
+          almacenamiento de adjuntos en <strong>Backblaze</strong>.
+        </p>
+
+        <p>
+          Lo que empezó como reportería terminó siendo una plataforma completa: no solo generaba
+          reportes y dashboards, también sirvió como sistema de ingreso de datos y registros,
+          manteniendo una <strong>coexistencia híbrida</strong> con el ERP. Finalmente se integró con
+          el plugin de <strong>e-commerce</strong> para crear una plataforma de ventas independiente,
+          entregada a los vendedores, con reglas de negocio que Softland no era capaz de aplicar —
+          mejorando el control y la trazabilidad de toda la empresa.
+        </p>
+
+        <!-- Captura del proyecto (pendiente) -->
+        <div class="shot-placeholder">
+          [ Captura pendiente — dashboard de Kuppel Management, con datos sensibles ofuscados ]
+        </div>
+
+        <!-- ================= DESTACADOS ================= -->
+        <h2>Destacados</h2>
+        <p>
+          La plataforma agrupa varios subsistemas. Estos son los de mayor impacto:
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>Conciliaciones bancarias</h3>
+            <p>
+              Paneles que comunican áreas para identificar qué pagos corresponden a cada movimiento
+              bancario del día, agilizando la conciliación. Sobre ese registro se montó un dashboard
+              con lo pendiente por conciliar y el estado de las conciliaciones, por periodo y por banco.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Plataforma de vendedores</h3>
+            <p>
+              Cada vendedor recibe su propio panel: rendimiento de ventas, clientes, productos más
+              vendidos, trazabilidad, disponibilidad en bodega de compras pendientes, solicitud de
+              compras y productos nuevos, y estado de sus clientes. Toda la información de venta en un
+              solo lugar.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Auditoría automatizada</h3>
+            <p>
+              Paneles que detectan de forma automática actividades irregulares —ingreso de mercadería
+              sin costo, sobrecompras de productos, estados anómalos— para gestionarlas sin depender de
+              una observación manual y constante.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Además, la plataforma incluye un <strong>panel de manejo de deudas</strong> que reemplazó el
+          trabajo en Excel de Tesorería (saldos pendientes ordenados por mora y condiciones de venta,
+          con visibilidad en tiempo real para que los vendedores participen en la regularización de sus
+          clientes); <strong>reportería comercial</strong> que rescata las ventas directo de la base de
+          datos (facturación, booking de notas de venta pendientes, pendientes de meses anteriores,
+          notas de crédito, bonos y ventas diarias); y una <strong>plataforma de ventas y creación de
+          clientes</strong> sobre el plugin de e-commerce, con restricciones según las reglas de negocio
+          e ingreso automatizado de parámetros clave para reducir errores y correcciones posteriores.
+        </p>
+
+        <!-- ================= FICHA TÉCNICA ================= -->
+        <h2>Stack &amp; tecnologías</h2>
+        <div class="tech-list">
+          <span class="tag">Python</span>
+          <span class="tag">Django</span>
+          <span class="tag">SQL Server (BD espejo)</span>
+          <span class="tag">PythonAnywhere</span>
+          <span class="tag">Backblaze</span>
+          <span class="tag">Plugin e-commerce</span>
+          <span class="tag">Integración ERP Softland Cloud</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,431 @@
+/* ============================================================
+   Variables globales — paleta oficial del portafolio
+   Paleta azul petróleo / turquesa (tema "tech nocturno frío")
+   ============================================================ */
+:root {
+  /* Fondos — azul petróleo / teal oscuro */
+  --bg: #08171A;          /* fondo principal */
+  --bg-2: #0E2226;        /* cards */
+  --bg-3: #163035;        /* hover / secondary */
+
+  /* Texto */
+  --text: #E8F0F1;        /* texto principal (blanco con leve tinte frío) */
+  --muted: #7C97A0;       /* texto secundario (gris azulado) */
+
+  /* Acentos por área */
+  --blue: #38BDF8;        /* acento backend (azul cielo) */
+  --teal: #2DD4BF;        /* acento gamedev (turquesa) */
+  --coral: #FB7185;       /* acento proyectos especiales (coral, contraste) */
+
+  --font-display: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-body: "Mulish", sans-serif;
+
+  --max-width: 1100px;
+}
+
+/* ============================================================
+   Reset y base
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+/* Encabezados de sección */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 2.5rem;
+}
+
+/* Acentos por área */
+.accent-backend  { color: var(--blue); }
+.accent-gamedev  { color: var(--teal); }
+.accent-special  { color: var(--coral); }
+
+/* ============================================================
+   Header / Nav
+   ============================================================ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 23, 26, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--bg-3);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.nav-links a:hover {
+  color: var(--teal);
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+#hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-role {
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.hero-tagline {
+  color: var(--muted);
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.btn.btn-primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--bg);
+}
+
+.btn.btn-primary:hover {
+  background: transparent;
+  color: var(--blue);
+}
+
+/* ============================================================
+   Grid de proyectos (compartido por las tres secciones)
+   ============================================================ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--bg-2);
+  border: 1px solid var(--bg-3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  background: var(--bg-3);
+  border-color: var(--teal);
+  transform: translateY(-3px);
+}
+
+/* Card que es un enlace a página de detalle */
+a.card {
+  color: inherit;
+}
+
+a.card .card-cta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--teal);
+  margin-top: 0.25rem;
+}
+
+a.card:hover .card-cta {
+  text-decoration: underline;
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--bg-3);
+  color: var(--muted);
+}
+
+.card-links {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.card-links a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Contacto / Footer
+   ============================================================ */
+#contacto .contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+#contacto .contact-list a:hover {
+  color: var(--teal);
+}
+
+footer {
+  border-top: 1px solid var(--bg-3);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   Páginas de detalle de proyecto (proyectos/*.html)
+   ============================================================ */
+.project-hero {
+  padding: 4rem 0 2rem;
+  border-bottom: 1px solid var(--bg-3);
+}
+
+.back-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.back-link:hover {
+  color: var(--teal);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.project-subtitle {
+  color: var(--muted);
+  max-width: 46rem;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Cuerpo del caso */
+.project-body {
+  padding: 3rem 0;
+}
+
+.project-body .lead {
+  font-size: 1.1rem;
+  max-width: 46rem;
+  margin-bottom: 2.5rem;
+}
+
+.project-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.project-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.project-body p {
+  color: var(--muted);
+  max-width: 46rem;
+  margin-bottom: 1rem;
+}
+
+.project-body ul {
+  list-style: none;
+  max-width: 46rem;
+}
+
+/* Bloques de feature (subsistemas destacados) */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.feature {
+  background: var(--bg-2);
+  border: 1px solid var(--bg-3);
+  border-left: 3px solid var(--blue);
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.feature p {
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+/* Captura de pantalla del proyecto */
+.project-shot {
+  border: 1px solid var(--bg-3);
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.shot-placeholder {
+  border: 1px dashed var(--bg-3);
+  border-radius: 8px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: var(--bg-2);
+  margin: 1.5rem 0;
+}
+
+/* Ficha técnica lateral (stack + datos) */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 2rem;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 640px) {
+  .nav-links {
+    display: none; /* TODO: menú móvil si se necesita */
+  }
+
+  section {
+    padding: 3.5rem 0;
+  }
+}
