@@ -116,10 +116,11 @@ header {
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1.1rem;
   list-style: none;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 }
 
 .nav-links a:hover {
@@ -386,6 +387,93 @@ a.card:hover .card-cta {
   min-width: 620px;
   height: auto;
 }
+
+/* ============================================================
+   Timeline / Trayectoria (CV)
+   ============================================================ */
+.timeline {
+  position: relative;
+  max-width: 46rem;
+  margin-top: 1rem;
+  padding-left: 1.75rem;
+}
+
+/* línea vertical continua */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.32rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: var(--bg-3);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 2rem 0;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* nodo en la línea */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.75rem + 0.32rem);
+  top: 0.35rem;
+  transform: translateX(-50%);
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--muted);
+}
+
+/* color del nodo según tipo */
+.timeline-item.work::before   { border-color: var(--blue); }
+.timeline-item.study::before  { border-color: var(--amber, var(--teal)); }
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.timeline-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-bottom: 0.1rem;
+}
+
+.timeline-org {
+  font-size: 0.92rem;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* etiqueta trabajo/estudio */
+.timeline-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-tag.work  { color: var(--blue); border: 1px solid var(--blue); }
+.timeline-tag.study { color: var(--teal); border: 1px solid var(--teal); }
 
 footer {
   border-top: 1px solid var(--bg-3);
