@@ -199,22 +199,19 @@
           Mi historial público de contribuciones. El código de este mismo portafolio está entre ellas.
         </p>
 
-        <div class="terminal">
-          <div class="terminal-bar">
-            <span class="terminal-btns"><i></i><i></i><i></i></span>
-            <span class="terminal-name">bash — contributions</span>
+        <a class="gh-heatmap-wrap" href="https://github.com/BlueJadees" target="_blank" rel="noopener" aria-label="Ver perfil de GitHub de BlueJadees">
+          <div class="gh-heatmap" id="ghHeatmap">
+            <p class="gh-loading">cargando actividad…</p>
           </div>
-          <div class="terminal-body">
-            <p class="terminal-line"><span class="prompt">percy@homelab</span>:<span class="path">~</span>$ git log --author=BlueJadees --graph --all</p>
-            <a class="github-graph" href="https://github.com/BlueJadees" target="_blank" rel="noopener">
-              <img src="https://ghchart.rshah.org/2dd4bf/BlueJadees"
-                   alt="Gráfico de contribuciones de GitHub de BlueJadees"
-                   loading="lazy" width="828" height="128">
-            </a>
-            <p class="terminal-line terminal-out">// cada celda = un día · más brillo = más commits</p>
-            <p class="terminal-line"><span class="prompt">percy@homelab</span>:<span class="path">~</span>$ <span class="cursor">█</span></p>
+          <div class="gh-footer">
+            <span id="ghTotal"></span>
+            <span class="gh-scale">
+              menos
+              <i class="gh-cell l0"></i><i class="gh-cell l1"></i><i class="gh-cell l2"></i><i class="gh-cell l3"></i><i class="gh-cell l4"></i>
+              más
+            </span>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -378,6 +375,53 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: heatmap de GitHub ================= -->
+  <script>
+    (function () {
+      var mount = document.getElementById('ghHeatmap');
+      var totalEl = document.getElementById('ghTotal');
+      if (!mount) return;
+
+      var USER = 'BlueJadees';
+      var LEVEL = { NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 };
+      var MONTHS = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+
+      fetch('https://github-contributions-api.deno.dev/' + USER + '.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var weeks = data.contributions; // array de semanas, cada una array de días
+          if (!weeks || !weeks.length) throw new Error('sin datos');
+
+          var grid = document.createElement('div');
+          grid.className = 'gh-grid';
+
+          weeks.forEach(function (week) {
+            var col = document.createElement('div');
+            col.className = 'gh-col';
+            week.forEach(function (day) {
+              var cell = document.createElement('span');
+              var lvl = LEVEL[day.contributionLevel] != null ? LEVEL[day.contributionLevel] : 0;
+              cell.className = 'gh-cell l' + lvl;
+              cell.title = day.date + ' · ' + day.contributionCount + ' commit' + (day.contributionCount === 1 ? '' : 's');
+              col.appendChild(cell);
+            });
+            grid.appendChild(col);
+          });
+
+          mount.innerHTML = '';
+          mount.appendChild(grid);
+
+          if (totalEl && data.totalContributions != null) {
+            totalEl.textContent = data.totalContributions + ' contribuciones en el último año';
+          }
+        })
+        .catch(function () {
+          mount.innerHTML = '<p class="gh-loading">No se pudo cargar la actividad. ' +
+            '<span style="color:var(--teal)">Ver en GitHub →</span></p>';
+        });
+    })();
+  </script>
 
   <!-- ================= SCRIPT: timeline HUD ================= -->
   <script>

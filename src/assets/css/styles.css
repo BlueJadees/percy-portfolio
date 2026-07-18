@@ -479,21 +479,92 @@ a.card:hover .card-cta {
   51%, 100% { opacity: 0; }
 }
 
-/* Gráfico de contribuciones de GitHub (dentro de la terminal) */
-.github-graph {
+/* ============================================================
+   Heatmap de contribuciones de GitHub (generado por JS)
+   Gradiente negro → verde
+   ============================================================ */
+.gh-heatmap-wrap {
   display: block;
-  margin: 0.75rem 0;
-  transition: filter 0.2s;
+  background: var(--bg-2);
+  border: 1px solid var(--bg-3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
 }
 
-.github-graph:hover {
-  filter: brightness(1.15);
+.gh-heatmap-wrap:hover {
+  border-color: #2ea043;
 }
 
-.github-graph img {
-  width: 100%;
+.gh-heatmap {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.gh-loading {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.gh-grid {
+  display: flex;
+  gap: 3px;
   min-width: 620px;
-  height: auto;
+}
+
+.gh-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.gh-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--gh-l0);
+}
+
+/* Escala negro → verde */
+:root {
+  --gh-l0: #0d1117;   /* sin commits (casi negro) */
+  --gh-l1: #0e4429;   /* verde muy oscuro */
+  --gh-l2: #006d32;   /* verde medio */
+  --gh-l3: #26a641;   /* verde */
+  --gh-l4: #39d353;   /* verde brillante */
+}
+
+.gh-cell.l0 { background: var(--gh-l0); border: 1px solid rgba(255,255,255,0.04); }
+.gh-cell.l1 { background: var(--gh-l1); }
+.gh-cell.l2 { background: var(--gh-l2); }
+.gh-cell.l3 { background: var(--gh-l3); }
+.gh-cell.l4 { background: var(--gh-l4); box-shadow: 0 0 5px rgba(57,211,83,0.5); }
+
+/* pie: total + escala */
+.gh-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.gh-scale {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.gh-scale .gh-cell {
+  width: 11px;
+  height: 11px;
 }
 
 /* ============================================================
