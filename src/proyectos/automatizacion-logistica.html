@@ -12,9 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=7">
 </head>
 <body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -87,9 +89,10 @@
           parámetros de cada plataforma.
         </p>
 
-        <!-- Captura del proyecto (pendiente) -->
-        <div class="shot-placeholder">
-          [ Captura pendiente — Excel consolidado de entregas, con datos sensibles ofuscados ]
+        <!-- Capturas del proyecto -->
+        <div class="shot-grid">
+          <a class="shot-link" href="../assets/img/automatizacion-logistica/automatizacion-logistica-01.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/automatizacion-logistica/automatizacion-logistica-01.png" alt="Informe general en Power BI de la logística: pendientes, trazabilidad, facturas y stock" width="1917" height="866" loading="lazy"></a>
+          <a class="shot-link" href="../assets/img/automatizacion-logistica/automatizacion-logistica-02.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/automatizacion-logistica/automatizacion-logistica-02.png" alt="Informe de pendientes: tabla consolidada de entregas por transportista" width="1907" height="852" loading="lazy"></a>
         </div>
 
         <!-- ================= LO QUE RESUELVE ================= -->
@@ -153,6 +156,9 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: animaciones e interacción (compartido) ================= -->
+  <script src="../assets/js/site.js?v=2"></script>
 
 </body>
 </html>

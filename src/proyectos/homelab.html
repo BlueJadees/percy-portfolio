@@ -12,9 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=7">
 </head>
 <body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -72,10 +74,8 @@
           dónde esté.
         </p>
 
-        <!-- Captura del proyecto (pendiente) -->
-        <div class="shot-placeholder">
-          [ Captura pendiente — Portainer con los stacks corriendo / diagrama del HomeLab ]
-        </div>
+        <!-- Captura del proyecto -->
+        <a class="shot-link" href="../assets/img/homelab/homelab-01.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/homelab/homelab-01.png" alt="Portainer administrando los stacks Docker del HomeLab" width="1911" height="840" loading="lazy"></a>
 
         <!-- ================= EL FLUJO ================= -->
         <h2>Mi ciclo de desarrollo</h2>
@@ -143,6 +143,9 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: animaciones e interacción (compartido) ================= -->
+  <script src="../assets/js/site.js?v=2"></script>
 
 </body>
 </html>

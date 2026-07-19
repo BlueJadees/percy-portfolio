@@ -1381,6 +1381,186 @@ section[data-num] .container { position: relative; }
 .contact-item:hover .contact-ico { transform: scale(1.15) rotate(-6deg); }
 
 /* ============================================================
+   Páginas de proyecto — misma capa de animación que el index
+   ============================================================ */
+
+/* hero del proyecto: fondo con grid + orbe, versión sutil */
+.project-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(45, 212, 191, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 0%, #000 20%, transparent 80%);
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 0%, #000 20%, transparent 80%);
+  animation: grid-pan 30s linear infinite;
+  pointer-events: none;
+}
+
+.project-hero::after {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  right: -140px;
+  top: -160px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12), rgba(45, 212, 191, 0.05) 45%, transparent 65%);
+  animation: orb-float 10s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.project-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* entrada escalonada del hero del proyecto */
+.project-hero .container > * { animation: rise 0.7s cubic-bezier(0.22, 0.9, 0.35, 1) both; }
+.project-hero .container > :nth-child(1) { animation-delay: 0.05s; }
+.project-hero .container > :nth-child(2) { animation-delay: 0.15s; }
+.project-hero .container > :nth-child(3) { animation-delay: 0.25s; }
+.project-hero .container > :nth-child(4) { animation-delay: 0.38s; }
+.project-hero .container > :nth-child(5) { animation-delay: 0.5s; }
+
+/* barrido de brillo sobre el título del proyecto */
+.project-title {
+  color: var(--text);
+  background: linear-gradient(110deg,
+    var(--text) 0%, var(--text) 40%,
+    var(--teal) 48%, var(--blue) 52%,
+    var(--text) 60%, var(--text) 100%);
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    rise 0.7s cubic-bezier(0.22, 0.9, 0.35, 1) both,
+    title-sheen 9s ease-in-out 1.5s infinite;
+}
+
+/* los acentos del título conservan su color dentro del clip */
+.project-title span {
+  -webkit-text-fill-color: initial;
+}
+
+/* back-link: la flecha empuja al pasar el mouse */
+.back-link { transition: color 0.2s, transform 0.25s; }
+.back-link:hover { transform: translateX(-4px); }
+
+/* subrayado que se dibuja bajo los h2 del caso */
+.project-body h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s 0.2s ease;
+}
+
+.project-body h2.reveal.in::after,
+.project-body h2:not(.reveal)::after { transform: scaleX(1); }
+
+/* features: spotlight + lift, como las cards */
+.feature {
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+  background:
+    radial-gradient(380px circle at var(--mx, -300px) var(--my, -300px), rgba(45, 212, 191, 0.08), transparent 55%),
+    var(--bg-2);
+}
+
+.feature:hover {
+  transform: translateY(-3px);
+  border-color: var(--teal);
+  border-left-color: var(--teal);
+  box-shadow: 0 14px 34px -16px rgba(0, 0, 0, 0.55);
+}
+
+/* placeholder de captura: respira sutilmente */
+.shot-placeholder {
+  transition: border-color 0.3s, color 0.3s;
+  animation: shot-breathe 3.5s ease-in-out infinite;
+}
+
+.shot-placeholder:hover {
+  border-color: var(--teal);
+  color: var(--text);
+  animation-play-state: paused;
+}
+
+@keyframes shot-breathe {
+  0%, 100% { border-color: var(--bg-3); }
+  50%      { border-color: rgba(45, 212, 191, 0.35); }
+}
+
+/* capturas reales: zoom sutil al pasar el mouse */
+.project-shot {
+  height: auto;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.project-shot:hover {
+  border-color: var(--teal);
+  transform: scale(1.01);
+}
+
+/* enlace que envuelve cada captura (abre la imagen completa) */
+.shot-link {
+  display: block;
+  margin: 1.5rem 0;
+}
+
+.shot-link .project-shot { margin: 0; }
+
+/* galería de capturas (2–3 imágenes) */
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.shot-grid .shot-link { margin: 0; height: 100%; }
+
+.shot-grid .project-shot {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* listas (hosted / roadmap): los ítems se encienden al pasar */
+.hosted-list li,
+.roadmap li {
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.hosted-list li:hover {
+  color: var(--text);
+  transform: translateX(3px);
+}
+
+.roadmap li:hover { color: var(--text); }
+
+/* tags de la ficha técnica */
+.tech-list .tag { transition: border-color 0.2s, color 0.2s; }
+
+.tech-list .tag:hover {
+  border-color: rgba(45, 212, 191, 0.45);
+  color: var(--text);
+}
+
+/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 860px) {

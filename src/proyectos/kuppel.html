@@ -12,9 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=7">
 </head>
 <body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -100,9 +102,10 @@
           trazabilidad de toda la empresa.
         </p>
 
-        <!-- Captura del proyecto (pendiente) -->
-        <div class="shot-placeholder">
-          [ Captura pendiente — dashboard de Kuppel Management, con datos sensibles ofuscados ]
+        <!-- Capturas del proyecto -->
+        <div class="shot-grid">
+          <a class="shot-link" href="../assets/img/kuppel/kuppel-01.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/kuppel/kuppel-01.png" alt="Panel principal de Kuppel Management con sus módulos de administración" width="1890" height="857" loading="lazy"></a>
+          <a class="shot-link" href="../assets/img/kuppel/kuppel-02.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/kuppel/kuppel-02.png" alt="Módulo comercial: búsqueda y estado de documentos de venta" width="1892" height="842" loading="lazy"></a>
         </div>
 
         <!-- ================= DESTACADOS ================= -->
@@ -175,6 +178,9 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: animaciones e interacción (compartido) ================= -->
+  <script src="../assets/js/site.js?v=2"></script>
 
 </body>
 </html>

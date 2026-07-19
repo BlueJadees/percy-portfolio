@@ -12,9 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=7">
 </head>
 <body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -75,9 +77,10 @@
           50 minutos</strong>. El título de mis shows fue <strong>Sonic 2</strong> de Sega.
         </p>
 
-        <!-- Captura del proyecto (pendiente) -->
-        <div class="shot-placeholder">
-          [ Foto pendiente — la banda en escenario durante un show ]
+        <!-- Capturas del proyecto -->
+        <div class="shot-grid">
+          <a class="shot-link" href="../assets/img/polysteichon/polysteichon-01.jpg" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/polysteichon/polysteichon-01.jpg" alt="Polysteichon y equipo en el escenario tras un show de la gira" width="1440" height="1440" loading="lazy"></a>
+          <a class="shot-link" href="../assets/img/polysteichon/polysteichon-02.jpg" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/polysteichon/polysteichon-02.jpg" alt="Show en vivo de Polysteichon con el público" width="1440" height="1440" loading="lazy"></a>
         </div>
 
         <!-- ================= LA GIRA ================= -->
@@ -128,6 +131,9 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: animaciones e interacción (compartido) ================= -->
+  <script src="../assets/js/site.js?v=2"></script>
 
 </body>
 </html>

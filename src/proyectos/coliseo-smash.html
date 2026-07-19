@@ -12,9 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=7">
 </head>
 <body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -67,9 +69,11 @@
           chilena.
         </p>
 
-        <!-- Captura del proyecto (pendiente) -->
-        <div class="shot-placeholder">
-          [ Captura pendiente — setup de transmisión / gran final en escenario ]
+        <!-- Capturas del proyecto -->
+        <div class="shot-grid">
+          <a class="shot-link" href="../assets/img/coliseo-smash/coliseo-smash-01.jpg" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/coliseo-smash/coliseo-smash-01.jpg" alt="Parte del equipo de Coliseo Smash en un evento" width="2048" height="1365" loading="lazy"></a>
+          <a class="shot-link" href="../assets/img/coliseo-smash/coliseo-smash-02.jpg" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/coliseo-smash/coliseo-smash-02.jpg" alt="Competidores jugando Super Smash Bros en las estaciones del torneo" width="2048" height="1365" loading="lazy"></a>
+          <a class="shot-link" href="../assets/img/coliseo-smash/coliseo-smash-03.jpg" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/coliseo-smash/coliseo-smash-03.jpg" alt="Producción audiovisual en vivo durante un evento de Coliseo Smash" width="2048" height="1365" loading="lazy"></a>
         </div>
 
         <!-- ================= LA TRAYECTORIA ================= -->
@@ -152,6 +156,9 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: animaciones e interacción (compartido) ================= -->
+  <script src="../assets/js/site.js?v=2"></script>
 
 </body>
 </html>

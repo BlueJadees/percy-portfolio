@@ -12,9 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=7">
 </head>
 <body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -76,9 +78,11 @@
           completo.
         </p>
 
-        <!-- Captura del proyecto (pendiente) -->
-        <div class="shot-placeholder">
-          [ Captura / GIF pendiente — gameplay de Hunt the Space Dragon (pixel art retrofuturista) ]
+        <!-- Capturas del proyecto -->
+        <div class="shot-grid">
+          <a class="shot-link" href="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-01.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-01.png" alt="Nivel espacial de Hunt the Space Dragon en pixel art" width="1587" height="946" loading="lazy"></a>
+          <a class="shot-link" href="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-02.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-02.png" alt="Pantalla de transición "NEXT STAGE!!!" entre niveles" width="1590" height="951" loading="lazy"></a>
+          <a class="shot-link" href="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-03.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-03.png" alt="Encuentro con el dragón en el segundo nivel" width="1591" height="957" loading="lazy"></a>
         </div>
 
         <!-- ================= ROADMAP ================= -->
@@ -114,6 +118,9 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: animaciones e interacción (compartido) ================= -->
+  <script src="../assets/js/site.js?v=2"></script>
 
 </body>
 </html>

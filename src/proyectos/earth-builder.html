@@ -12,9 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=7">
 </head>
 <body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -75,9 +77,10 @@
           manos.
         </p>
 
-        <!-- Capturas del prototipo (pendientes de subir) -->
-        <div class="shot-placeholder">
-          [ Capturas del prototipo pendientes de subir — vistas 3D del gameplay temprano ]
+        <!-- Capturas del proyecto -->
+        <div class="shot-grid">
+          <a class="shot-link" href="../assets/img/earth-builder/earth-builder-01.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/earth-builder/earth-builder-01.png" alt="Prototipo de Earth-Builder en Godot 4: criatura low-poly en el terreno de pruebas" width="1912" height="1012" loading="lazy"></a>
+          <a class="shot-link" href="../assets/img/earth-builder/earth-builder-02.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/earth-builder/earth-builder-02.png" alt="Vista del mapa del prototipo con unidades y recursos, en el editor de Godot 4" width="1912" height="1010" loading="lazy"></a>
         </div>
 
         <!-- ================= PILARES DE DISEÑO ================= -->
@@ -137,6 +140,9 @@
   <footer>
     <p>© 2026 Percy Muñoz — Hecho a mano con HTML/CSS puro. Servido desde mi HomeLab.</p>
   </footer>
+
+  <!-- ================= SCRIPT: animaciones e interacción (compartido) ================= -->
+  <script src="../assets/js/site.js?v=2"></script>
 
 </body>
 </html>
