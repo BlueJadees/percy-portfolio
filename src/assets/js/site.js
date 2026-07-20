@@ -65,6 +65,39 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
+  /* --- Hero de proyecto: fondo con las capturas de la propia página --- */
+  var pHero = document.querySelector('.project-hero');
+  if (pHero) {
+    var srcs = [];
+    document.querySelectorAll('.project-shot').forEach(function (img) {
+      var s = img.currentSrc || img.src;
+      if (s && srcs.indexOf(s) < 0) srcs.push(s);
+    });
+
+    if (srcs.length) {
+      var bg = document.createElement('div');
+      bg.className = 'hero-bg';
+      bg.setAttribute('aria-hidden', 'true');
+      srcs.forEach(function (s, i) {
+        var d = document.createElement('div');
+        d.className = 'hero-bg-img' + (i === 0 ? ' on' : '');
+        d.style.backgroundImage = 'url("' + s + '")';
+        bg.appendChild(d);
+      });
+      pHero.insertBefore(bg, pHero.firstChild);
+      pHero.classList.add('has-bg');
+
+      if (srcs.length > 1 && !reduced) {
+        var cur = 0;
+        setInterval(function () {
+          bg.children[cur].classList.remove('on');
+          cur = (cur + 1) % srcs.length;
+          bg.children[cur].classList.add('on');
+        }, 5500);
+      }
+    }
+  }
+
   /* --- Spotlight que sigue el mouse en cards y features --- */
   document.querySelectorAll('.card, .feature').forEach(function (card) {
     card.addEventListener('mousemove', function (e) {

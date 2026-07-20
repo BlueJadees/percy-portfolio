@@ -1455,6 +1455,48 @@ section[data-num] .container { position: relative; }
 .back-link { transition: color 0.2s, transform 0.25s; }
 .back-link:hover { transform: translateX(-4px); }
 
+/* --- Fondo del hero del proyecto: slideshow con las capturas de la página --- */
+.project-hero.has-bg { padding: 5rem 0 3rem; }
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 25%;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.4s ease, transform 7s ease-out;
+}
+
+.hero-bg-img.on {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* velo para mantener legible el texto sobre la imagen */
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(8, 23, 26, 0.96) 0%,
+      rgba(8, 23, 26, 0.88) 45%,
+      rgba(8, 23, 26, 0.74) 100%),
+    linear-gradient(180deg,
+      rgba(8, 23, 26, 0.45) 0%,
+      rgba(8, 23, 26, 0.1) 45%,
+      rgba(8, 23, 26, 0.97) 100%);
+}
+
 /* subrayado que se dibuja bajo los h2 del caso */
 .project-body h2::after {
   content: "";
