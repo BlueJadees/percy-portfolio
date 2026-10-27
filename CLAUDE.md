@@ -58,7 +58,7 @@ percy-portfolio/
     ├── assets/
     │   ├── css/            ← estilos (si se separan del HTML)
     │   ├── img/            ← imágenes, capturas de proyectos
-    │   └── games/          ← builds HTML5 de juegos (ej. hunt-the-space-dragon/)
+    │   └── games/          ← builds HTML5 de juegos (hunt-the-space-dragon/ ya integrado)
     └── favicon.ico
 ```
 
@@ -126,15 +126,21 @@ server {
     root /usr/share/nginx/html;
     index index.html;
 
+    # Compresión (incluye application/wasm, que no viene por defecto)
+    gzip on;
+    gzip_min_length 1024;
+    gzip_types text/css application/javascript application/json image/svg+xml application/wasm;
+
     # Rutas normales
     location / {
         try_files $uri $uri/ /index.html;
     }
 
-    # Juegos HTML5 embebidos (Godot export)
-    location /assets/games/ {
-        add_header Cross-Origin-Opener-Policy same-origin;
-        add_header Cross-Origin-Embedder-Policy require-corp;
+    # Juegos HTML5 embebidos (Godot export) — ^~ para que la regla regex de cache no los capture
+    location ^~ /assets/games/ {
+        add_header Cross-Origin-Opener-Policy same-origin always;
+        add_header Cross-Origin-Embedder-Policy require-corp always;
+        add_header Cache-Control "no-cache" always;
         try_files $uri $uri/ =404;
     }
 
@@ -146,8 +152,19 @@ server {
 }
 ```
 
-> Los headers `COOP` y `COEP` en `/assets/games/` son **obligatorios** para que
-> los exports HTML5 de Godot 4 funcionen correctamente (requieren SharedArrayBuffer).
+> Los headers `COOP` y `COEP` en `/assets/games/` solo son obligatorios para exports de Godot 4
+> **con hilos** (SharedArrayBuffer). El build actual de Hunt the Space Dragon se exportó **sin
+> hilos** y no los necesita; se dejan por si un juego futuro sí los usa.
+>
+> `Cache-Control: no-cache` en `/assets/games/`: los exports de Godot usan siempre los mismos
+> nombres (`index.wasm`, `index.pck`); con cache de 30 días, al subir una build nueva un visitante
+> podría quedar con `.wasm` viejo + `.pck` nuevo. `no-cache` revalida por ETag (304, barato).
+>
+> **Juegos embebidos:** cada build va en `src/assets/games/<juego>/` tal cual sale de Godot. La
+> página del proyecto lo muestra con `[data-game-embed]` (lógica en `site.js`): el iframe se crea
+> recién al hacer clic, para no descargar el `.wasm` (~10 MB gzip) a cada visitante. Para
+> actualizar una build basta con reemplazar los archivos. Notas de la build de HTSD:
+> `docs/hunt-the-space-dragon-web-build.md`.
 
 ---
 
@@ -172,7 +189,7 @@ server {
 |---|---|---|
 | **Earth-Builder** | Godot 4 (3D) + Blockbench | Proyecto personal más ambicioso. Híbrido RTS (StarCraft) + FP de automatización (Satisfactory): recursos + maquinaria para sostener conflicto entre razas en un planeta. Fase de diseño conceptual, prototipado y GDD. Sin roadmap cerrado; hay imágenes del prototipo (pendientes de subir). |
 | **Virals** | **Godot 3** | Party game caótico tipo WarioWare hecho en 48h de Game Jam (temática caótica). **2º lugar**, premiado con diplomado universitario. Colab con Gabriel Ladseatter (animador/diseñador). Publicado: https://jadees.itch.io/virals |
-| **Hunt the Space Dragon** | **GDevelop 5** (actual) → Godot 4 (port planeado) | Plataformero retrofuturista tributo NES/Famicom hecho en el ramo Taller de Videojuegos (nota 6.9/7). 2 niveles, mecánicas simples. Pixel art propio (Aseprite), solo audio open-source. Roadmap: port a Godot 4, más niveles/jefes, hub de época, paleta limitada. Jugable pero no publicado. |
+| **Hunt the Space Dragon** | GDevelop 5 (original) → **Godot 4.6** (port en alpha) | Plataformero retrofuturista tributo NES/Famicom hecho en el ramo Taller de Videojuegos (nota 6.9/7). Pixel art propio (Aseprite), solo audio open-source. La **alpha en Godot 4.6** (256×224, WebGL2, sin hilos) es **jugable en el portafolio** (`src/assets/games/hunt-the-space-dragon/`). Sin controles táctiles todavía. Roadmap: más niveles/jefes, hub de época, paleta limitada, controles táctiles. |
 
 ### Proyectos Especiales
 | Proyecto | Descripción corta |
@@ -219,7 +236,7 @@ Paleta azul petróleo / turquesa (tema "tech nocturno frío").
 - [ ] Reemplazar links `#` de itch.io y GitHub en las cards de juegos con URLs reales
 - [ ] Añadir screenshots/capturas reales de Kuppel Management (ofuscando datos sensibles)
 - [ ] Añadir screenshot o GIF de Virals
-- [ ] Integrar build HTML5 de Hunt the Space Dragon en `src/assets/games/hunt-the-space-dragon/`
+- [x] Integrar build HTML5 de Hunt the Space Dragon en `src/assets/games/hunt-the-space-dragon/`
 - [ ] Favicon personalizado
 - [ ] Meta tags OG para compartir en redes (og:title, og:image, og:description)
 

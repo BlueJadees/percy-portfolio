@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hunt the Space Dragon — Percy Muñoz</title>
-  <meta name="description" content="Hunt the Space Dragon: plataformero retrofuturista tributo a la era NES/Famicom con pixel art propio hecho en Aseprite. Nacido en GDevelop 5, en proceso de migración a Godot 4 y expansión.">
+  <meta name="description" content="Hunt the Space Dragon: plataformero retrofuturista tributo a la era NES/Famicom con pixel art propio hecho en Aseprite. Nacido en GDevelop 5 y ahora migrado a Godot 4: la versión alpha se juega directo en el navegador.">
 
   <link rel="icon" href="../favicon.ico">
 
@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=8">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=9">
 </head>
 <body>
 
@@ -40,16 +40,20 @@
 
         <div class="project-meta">
           <span class="tag">Videojuego</span>
-          <span class="tag">En desarrollo</span>
+          <span class="tag">Alpha jugable</span>
           <span class="tag">Pixel art propio</span>
         </div>
 
         <h1 class="project-title">Hunt the <span class="accent-gamedev">Space Dragon</span></h1>
         <p class="project-subtitle">
           Un plataformero retrofuturista que rinde tributo a la era NES / Famicom, con todo su pixel
-          art hecho a mano. Jugable en su versión actual, y en camino a convertirse en un proyecto
-          personal completo.
+          art hecho a mano. Su port a Godot 4 ya está en alpha y se puede jugar aquí mismo, en el
+          navegador.
         </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary accent-gamedev-btn" href="#jugar">▶ Jugar la alpha</a>
+        </div>
       </div>
     </section>
 
@@ -78,6 +82,50 @@
           completo.
         </p>
 
+        <p>
+          Ese port ya tiene su primera versión: una <strong>alpha en Godot 4.6</strong> que mantiene la
+          resolución interna de NES (<strong>256 × 224</strong>, escalado entero) y se exporta a
+          <strong>WebAssembly + WebGL2</strong>, así que corre entera en el navegador, sin instalar nada.
+        </p>
+
+        <!-- ================= JUGAR ================= -->
+        <h2 id="jugar">Jugar la alpha</h2>
+        <div class="game-embed" data-game-embed data-src="../assets/games/hunt-the-space-dragon/index.html">
+          <div class="game-frame">
+            <button type="button" class="game-start" data-game-start>
+              <img src="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-01.png" alt="" loading="lazy">
+              <span class="game-start-label">▶ Cargar juego</span>
+              <span class="game-start-note">~10 MB · requiere teclado o gamepad</span>
+            </button>
+          </div>
+          <div class="game-toolbar">
+            <button type="button" class="btn" data-game-fullscreen disabled>⛶ Pantalla completa</button>
+            <a class="btn" href="../assets/games/hunt-the-space-dragon/index.html" target="_blank" rel="noopener">Abrir en pestaña nueva ↗</a>
+          </div>
+        </div>
+
+        <p class="game-hint">
+          Al cargar aparece <strong>"PULSA UN BOTÓN"</strong>: la música arranca con esa primera tecla
+          (los navegadores no dejan sonar audio antes de que el jugador interactúe). Si el juego no
+          responde al teclado, haz clic sobre él para darle foco.
+        </p>
+
+        <table class="controls-table">
+          <thead><tr><th>Acción</th><th>Tecla</th></tr></thead>
+          <tbody>
+            <tr><td>Moverse</td><td><kbd>←</kbd> <kbd>→</kbd> o <kbd>A</kbd> <kbd>D</kbd></td></tr>
+            <tr><td>Saltar</td><td><kbd>Espacio</kbd> o <kbd>Z</kbd></td></tr>
+            <tr><td>Atacar / confirmar</td><td><kbd>X</kbd></td></tr>
+            <tr><td>Sub-arma</td><td><kbd>C</kbd></td></tr>
+            <tr><td>Cambiar bolsillo</td><td><kbd>Q</kbd> / <kbd>E</kbd></td></tr>
+            <tr><td>Pausa</td><td><kbd>Esc</kbd></td></tr>
+          </tbody>
+        </table>
+        <p class="game-hint">
+          También funciona con gamepad. En celulares y tablets carga, pero todavía no tiene controles
+          táctiles.
+        </p>
+
         <!-- Capturas del proyecto -->
         <div class="shot-grid">
           <a class="shot-link" href="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-01.png" target="_blank" rel="noopener"><img class="project-shot" src="../assets/img/hunt-the-space-dragon/hunt-the-space-dragon-01.png" alt="Nivel espacial de Hunt the Space Dragon en pixel art" width="1587" height="946" loading="lazy"></a>
@@ -91,7 +139,8 @@
         <ul class="roadmap">
           <li class="done">Dos niveles jugables con mecánicas base</li>
           <li class="done">Pixel art propio (Aseprite)</li>
-          <li class="todo">Portar de GDevelop 5 a Godot 4</li>
+          <li class="done">Port de GDevelop 5 a Godot 4 — alpha jugable en el navegador</li>
+          <li class="todo">Controles táctiles para jugar desde el celular</li>
           <li class="todo">Más niveles y jefes</li>
           <li class="todo">Adaptar y pulir mejor los diseños creados</li>
           <li class="todo">Reemplazar los assets open-source restantes (audio) por propios</li>
@@ -102,8 +151,9 @@
         <!-- ================= FICHA TÉCNICA ================= -->
         <h2>Ficha técnica</h2>
         <div class="tech-list">
-          <span class="tag">GDevelop 5 (actual)</span>
-          <span class="tag">Godot 4 (destino del port)</span>
+          <span class="tag">Godot 4.6 (alpha)</span>
+          <span class="tag">GDevelop 5 (versión original)</span>
+          <span class="tag">WebAssembly / WebGL2</span>
           <span class="tag">Aseprite (pixel art propio)</span>
           <span class="tag">Plataformero</span>
           <span class="tag">Estética NES / Famicom</span>
@@ -120,7 +170,7 @@
   </footer>
 
   <!-- ================= SCRIPT: animaciones e interacción (compartido) ================= -->
-  <script src="../assets/js/site.js?v=3"></script>
+  <script src="../assets/js/site.js?v=4"></script>
 
 </body>
 </html>

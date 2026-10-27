@@ -1603,6 +1603,149 @@ section[data-num] .container { position: relative; }
 }
 
 /* ============================================================
+   Juego embebido (builds HTML5 en assets/games/)
+   ============================================================ */
+.project-hero .hero-actions { margin-top: 1.8rem; }
+
+.game-embed {
+  margin: 1.5rem 0 1rem;
+}
+
+/* 8:7 = resolución NES (256 × 224); el alto se limita al viewport */
+.game-frame {
+  position: relative;
+  width: min(100%, 768px, calc(80vh * 8 / 7));
+  aspect-ratio: 8 / 7;
+  margin: 0 auto;
+  background: #000;
+  border: 1px solid var(--bg-3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.game-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.game-start {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border: 0;
+  padding: 0;
+  background: #000;
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--font-mono);
+}
+
+/* height > 100% anclado abajo: recorta la barra de título de la ventana que trae la captura */
+.game-start img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 104%;
+  object-fit: cover;
+  opacity: 0.35;
+  filter: saturate(0.8);
+  image-rendering: pixelated;
+  transition: opacity 0.3s, transform 0.6s;
+}
+
+.game-start:hover img,
+.game-start:focus-visible img {
+  opacity: 0.5;
+  transform: scale(1.03);
+}
+
+.game-start-label,
+.game-start-note { position: relative; }
+
+.game-start-label {
+  font-size: 1rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--teal);
+  color: var(--bg);
+  border-radius: 4px;
+  box-shadow: 0 0 24px rgba(45, 212, 191, 0.35);
+}
+
+.game-start-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.game-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.game-toolbar .btn {
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.game-toolbar .btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--muted);
+  color: var(--muted);
+}
+
+.project-body .game-hint {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.controls-table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.92rem;
+  min-width: min(100%, 26rem);
+}
+
+.controls-table th,
+.controls-table td {
+  text-align: left;
+  padding: 0.5rem 1rem 0.5rem 0;
+  border-bottom: 1px solid var(--bg-3);
+}
+
+.controls-table th {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--bg-3);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--bg-2);
+  color: var(--teal);
+}
+
+/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 860px) {

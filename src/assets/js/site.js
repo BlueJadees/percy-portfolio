@@ -211,4 +211,33 @@
       setTimeout(nextCmd, 700);
     }
   }
+
+  /* --- Juego embebido: el iframe se crea recién al hacer clic (el .wasm pesa ~10 MB) --- */
+  document.querySelectorAll('[data-game-embed]').forEach(function (embed) {
+    var start = embed.querySelector('[data-game-start]');
+    var full = embed.querySelector('[data-game-fullscreen]');
+    var frame = embed.querySelector('.game-frame');
+    var iframe = null;
+
+    start.addEventListener('click', function () {
+      iframe = document.createElement('iframe');
+      iframe.src = embed.getAttribute('data-src');
+      iframe.title = 'Juego';
+      iframe.setAttribute('allow', 'autoplay; fullscreen; gamepad');
+      // sin foco, el teclado sigue scrolleando la página en vez de llegar al juego
+      iframe.addEventListener('load', function () { iframe.focus(); });
+      frame.replaceChild(iframe, start);
+      iframe.focus();
+      if (full) full.disabled = false;
+    });
+
+    if (full) {
+      full.addEventListener('click', function () {
+        if (!iframe) return;
+        var req = iframe.requestFullscreen || iframe.webkitRequestFullscreen;
+        if (req) req.call(iframe);
+        iframe.focus();
+      });
+    }
+  });
 })();
